@@ -24,7 +24,7 @@ class MainFragment23 : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel2::class.java)
+        viewModel = ViewModelProvider(this)[MainViewModel2::class.java]
         // TODO: Use the ViewModel
     }
 

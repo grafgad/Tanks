@@ -1,4 +1,4 @@
-package com.example.tanks.main
+package com.example.tanks.presentation.main
 
 import androidx.lifecycle.ViewModel
 import com.example.tanks.Screens
@@ -9,7 +9,7 @@ class MainViewModel(private val router: Router): ViewModel() {
 
 
         fun onOpenNewScreen() {
-            router.navigateTo(Screens.CLans())
+            router.navigateTo(Screens.CLan())
         }
 
         fun onBackPressed() {

@@ -1,4 +1,4 @@
-package com.example.tanks.vehicle
+package com.example.tanks.presentation.vehicle
 
 import androidx.lifecycle.ViewModel
 

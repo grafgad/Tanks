@@ -1,4 +1,4 @@
-package com.example.tanks.clans
+package com.example.tanks.presentation.clans
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

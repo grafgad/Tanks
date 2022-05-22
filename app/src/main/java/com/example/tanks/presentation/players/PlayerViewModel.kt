@@ -1,4 +1,4 @@
-package com.example.tanks.players
+package com.example.tanks.presentation.players
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.example.tanks.vehicle
+package com.example.tanks.presentation.vehicle
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

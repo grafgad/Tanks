@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Players"
+        android:id="@+id/bottom_menu_players"
+        android:icon="@drawable/ic_baseline_face_24"/>
+    <item android:title="Vehicle"
+        android:id="@+id/bottom_menu_vehicle"
+        android:icon="@drawable/ic_baseline_pedal_bike_24"/>
+    <item android:title="Clans"
+        android:id="@+id/bottom_menu_clans"
+        android:icon="@drawable/ic_baseline_people_24"
+        />
+
+</menu>
