@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.bottom_menu_players -> {
                     goTo(Screens.Player())
                 }
-                R.id.bottom_menu_vehicle -> {
-                    goTo(Screens.Vehicle())
+                R.id.bottom_menu_global_map -> {
+                    goTo(Screens.GlobalMap())
                 }
             }
             true

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Players"
+    <item android:title="@string/players"
         android:id="@+id/bottom_menu_players"
         android:icon="@drawable/ic_baseline_face_24"/>
-    <item android:title="Vehicle"
-        android:id="@+id/bottom_menu_vehicle"
-        android:icon="@drawable/ic_baseline_pedal_bike_24"/>
-    <item android:title="Clans"
+    <item android:title="Global map"
+        android:id="@+id/bottom_menu_global_map"
+        android:icon="@drawable/ic_baseline_language_24"/>
+    <item android:title="@string/clans"
         android:id="@+id/bottom_menu_clans"
         android:icon="@drawable/ic_baseline_people_24"
         />
