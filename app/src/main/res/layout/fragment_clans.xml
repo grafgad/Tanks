@@ -7,6 +7,20 @@
     android:orientation="vertical"
     tools:context=".presentation.clans.ClanFragment">
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/clan_name_input"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Введите название клана"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clan_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search"
+        android:layout_gravity="center"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/clan_recycler"
         android:layout_width="match_parent"

@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="@color/custom"
         app:menu="@menu/bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

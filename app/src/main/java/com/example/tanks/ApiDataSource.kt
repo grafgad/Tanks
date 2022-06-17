@@ -9,8 +9,10 @@ import retrofit2.http.Query
 
 interface ApiDataSource {
 
-    @GET("wot/clans/list/?limit=5")
-    fun getClanList(): Single<ClansResponse>
+    @GET("wot/clans/list/")
+    fun getClanList(
+        @Query("search")clanName: String,
+    ): Single<ClansResponse>
 
     @GET("/wot/account/list/")
     fun getPlayersList(

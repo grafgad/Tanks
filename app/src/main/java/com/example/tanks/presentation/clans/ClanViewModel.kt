@@ -1,33 +1,31 @@
 package com.example.tanks.presentation.clans
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
-import com.example.tanks.ApiDataSource
-import com.example.tanks.Api
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.kotlin.addTo
+import com.example.tanks.customOnError
+import com.example.tanks.model.clan.Clan
+import com.example.tanks.presentation.BaseViewModel
+import com.jakewharton.rxrelay3.BehaviorRelay
+import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 
-class ClanViewModel : ViewModel() {
-    private val apiDataSource: ApiDataSource = Api.getApiDataSource()
-    private val compositeDisposable = CompositeDisposable()
+class ClanViewModel : BaseViewModel() {
 
-    init{
-        apiDataSource.getClanList()
+    private val _clanList: BehaviorRelay<List<Clan>> = BehaviorRelay.createDefault(emptyList())
+    val clanList: Observable<List<Clan>> = _clanList
+
+    fun onSearchClicked(clanName: String) {
+        searchSubscription?.dispose()
+        val searchSubscription = apiDataSource.getClanList(clanName)
             .subscribeBy(
-                onError = {
-                    Log.d("LLLLLLL", "Error", it)
-                },
+                onError = { customOnError(it) },
                 onSuccess = {
+                    _clanList.accept(it.data)
                     Log.d("LLLLLLL", it.toString())
                 }
             )
-            .addTo(compositeDisposable)
+        this.searchSubscription = searchSubscription
+        compositeDisposable.add(searchSubscription)
     }
 
-    override fun onCleared() {
-        compositeDisposable.clear()
-        super.onCleared()
-    }
 
 }

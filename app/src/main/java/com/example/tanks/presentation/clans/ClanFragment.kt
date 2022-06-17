@@ -1,7 +1,7 @@
 package com.example.tanks.presentation.clans
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +12,12 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
 import com.example.tanks.databinding.FragmentClansBinding
+import com.example.tanks.presentation.BaseFragment
+import io.reactivex.rxjava3.kotlin.subscribeBy
 
-class ClanFragment : Fragment() {
+class ClanFragment : BaseFragment() {
 
-    private val viewBinding: FragmentClansBinding by viewBinding(CreateMethod.INFLATE)
+    private val binding: FragmentClansBinding by viewBinding(CreateMethod.INFLATE)
     private val viewModel: ClanViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private val adapter = ClanAdapter()
@@ -23,22 +25,29 @@ class ClanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        recyclerView = viewBinding.clanRecycler
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
-        return inflater.inflate(R.layout.fragment_clans, container, false)
+    ): View {
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel
         super.onViewCreated(view, savedInstanceState)
+        recyclerView = binding.clanRecycler
+        recyclerView.adapter = adapter
+//        recyclerView.layoutManager = LinearLayoutManager(context)
+        val clanName = binding.clanNameInput.text
+        viewModel.clanList.subscribeBy(
+            onError = {
+                Log.e("LLLLLLL", "Error", it)
+            },
+            onNext = {
+                adapter.updateClans(it)
+            }
+        )
+
+        binding.clanSearchButton.setOnClickListener {
+            viewModel.onSearchClicked(clanName.toString())
+        }
     }
 
-    companion object {
-        fun newInstance() = ClanFragment()
-    }
 }

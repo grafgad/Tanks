@@ -11,8 +11,6 @@ data class Clan(
     val name: String,
     @SerializedName("members_count")
     val members_count: Int,
-//    @SerializedName("emblrms")
-//    val emblems: List<String> {
-//
-//    }
+//    @SerializedName("emblems")
+//    val emblems: List<List<Map<String, String>>>
 )

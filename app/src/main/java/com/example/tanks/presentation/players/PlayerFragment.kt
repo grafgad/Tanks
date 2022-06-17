@@ -12,18 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.databinding.FragmentPlayerBinding
+import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 
-class PlayerFragment : Fragment() {
+class PlayerFragment : BaseFragment() {
 
     private val viewModel: PlayerViewModel by viewModels()
     private val binding: FragmentPlayerBinding by viewBinding(CreateMethod.INFLATE)
     private lateinit var recyclerView: RecyclerView
     private val adapter = PlayerAdapter()
-    private val compositeDisposable = CompositeDisposable()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,16 +51,6 @@ class PlayerFragment : Fragment() {
         binding.searchButton.setOnClickListener {
             viewModel.onSearchClicked(nickname.toString())
         }
-
-
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    companion object {
-        fun newInstance() = PlayerFragment()
-    }
 }

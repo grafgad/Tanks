@@ -3,25 +3,32 @@ package com.example.tanks.presentation.clans
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
+import com.example.tanks.databinding.ItemClanBinding
 import com.example.tanks.model.clan.Clan
 
 class ClanAdapter : RecyclerView.Adapter<ClanAdapter.ClanViewHolder>() {
+
+
     private var clanList = emptyList<Clan>()
 
-    fun addClans(newList: List<Clan>) {
+    fun updateClans(newList: List<Clan>) {
         clanList = newList
         notifyDataSetChanged()
     }
 
-    class ClanViewHolder (itemview: View) : RecyclerView.ViewHolder(itemview){
-        private val clanId = itemview.findViewById<TextView>(R.id.clan_id)
-        private val clanName = itemview.findViewById<TextView>(R.id.clan_name)
-        private val clanMembersCount = itemview.findViewById<TextView>(R.id.clan_members_count)
+    class ClanViewHolder(itemVIew: View) : RecyclerView.ViewHolder(itemVIew) {
+        private val binding: ItemClanBinding by viewBinding()
+
+        private val clanId = binding.clanId
+        private val clanName = binding.clanName
+        private val clanMembersCount = binding.clanMembersCount
+        private val clanImage = binding.clanImage
 
         fun onBind(clan: Clan) {
+//            clanImage.load(clan.emblems[])
             clanId.text = clan.clan_id.toString()
             clanName.text = clan.name
             clanMembersCount.text = clan.members_count.toString()

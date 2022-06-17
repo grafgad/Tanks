@@ -7,41 +7,30 @@
     android:layout_height="match_parent"
     tools:context=".presentation.players.PlayerFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="PLAYER"
-        app:layout_constraintBottom_toTopOf="@+id/input_player"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_player"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:hint="введите имя игрока"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="search"
-        app:layout_constraintTop_toBottomOf="@id/input_player"
-         />
+        app:layout_constraintTop_toBottomOf="@id/input_player" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/players_result"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/search_button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_player"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_button"
+        tools:listitem="@layout/item_player" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
