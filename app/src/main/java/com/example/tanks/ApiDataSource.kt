@@ -9,9 +9,14 @@ import retrofit2.http.Query
 
 interface ApiDataSource {
 
+    @GET("")
+    fun getDefaultResponse(
+        @Query("")any: Any
+    ): Single<Any>
+
     @GET("wot/clans/list/")
     fun getClanList(
-        @Query("search")clanName: String,
+        @Query("search")clanName: String
     ): Single<ClansResponse>
 
     @GET("/wot/account/list/")
