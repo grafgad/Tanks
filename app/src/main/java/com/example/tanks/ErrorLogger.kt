@@ -7,3 +7,9 @@ object ErrorLogger {
         Log.e("LLLLLLL", "Error", throwable)
     }
 }
+
+object SuccessLogger {
+    fun logAnswer(T: Any) {
+        Log.d("LLLLLLL", T.toString())
+    }
+}

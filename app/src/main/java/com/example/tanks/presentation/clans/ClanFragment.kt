@@ -34,7 +34,6 @@ class ClanFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = binding.clanRecycler
         recyclerView.adapter = adapter
-//        recyclerView.layoutManager = LinearLayoutManager(context)
         val clanName = binding.clanNameInput.text
         viewModel.clanList.subscribeBy(
             onError = {

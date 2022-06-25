@@ -11,6 +11,8 @@ import io.reactivex.rxjava3.disposables.Disposable
 
 class PlayerViewModel : BaseViewModel() {
 
+    //- Отработать механику подписки на реузльтат в MVVM через RxJava
+
     private val apiDataSource: ApiDataSource = Api.getApiDataSource()
     private var searchSubscription: Disposable? = null
     private val _playerList: BehaviorRelay<List<Player>> = BehaviorRelay.createDefault(emptyList())
@@ -22,13 +24,6 @@ class PlayerViewModel : BaseViewModel() {
             .subscribeSafely {
                 _playerList.accept(it.data)
             }
-//            .subscribeBy(
-//                onError = ErrorLogger::logThrowable,
-//                onSuccess = {
-//                    _playerList.accept(it.data)
-//                    Log.d("LLLLLLL", it.toString())
-//                }
-//            )
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)
     }
