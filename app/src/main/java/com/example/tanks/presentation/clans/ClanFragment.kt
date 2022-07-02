@@ -19,8 +19,6 @@ class ClanFragment : BaseFragment() {
 
     private val binding: FragmentClansBinding by viewBinding(CreateMethod.INFLATE)
     private val viewModel: ClanViewModel by viewModels()
-    private lateinit var recyclerView: RecyclerView
-    private val adapter = ClanAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +27,10 @@ class ClanFragment : BaseFragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = binding.clanRecycler
+        val adapter = ClanAdapter()
+        val recyclerView = binding.clanRecycler
         recyclerView.adapter = adapter
         val clanName = binding.clanNameInput.text
         viewModel.clanList.subscribeBy(

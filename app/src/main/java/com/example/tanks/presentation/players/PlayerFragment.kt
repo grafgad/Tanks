@@ -12,6 +12,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.ErrorLogger
 import com.example.tanks.databinding.FragmentPlayerBinding
 import com.example.tanks.presentation.BaseFragment
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 
@@ -37,6 +38,7 @@ class PlayerFragment : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         val nickname = binding.inputPlayer.text
         viewModel.playerList
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = ErrorLogger::logThrowable,
                 onNext = {

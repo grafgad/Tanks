@@ -11,8 +11,6 @@ import io.reactivex.rxjava3.disposables.Disposable
 
 class PlayerViewModel : BaseViewModel() {
 
-    //- Отработать механику подписки на реузльтат в MVVM через RxJava
-
     private val apiDataSource: ApiDataSource = Api.getApiDataSource()
     private var searchSubscription: Disposable? = null
     private val _playerList: BehaviorRelay<List<Player>> = BehaviorRelay.createDefault(emptyList())
