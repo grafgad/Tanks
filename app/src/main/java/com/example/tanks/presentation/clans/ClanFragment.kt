@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.tanks.R
 import com.example.tanks.databinding.FragmentClansBinding
 import com.example.tanks.presentation.BaseFragment
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
 
 class ClanFragment : BaseFragment() {
@@ -33,7 +31,9 @@ class ClanFragment : BaseFragment() {
         val recyclerView = binding.clanRecycler
         recyclerView.adapter = adapter
         val clanName = binding.clanNameInput.text
-        viewModel.clanList.subscribeBy(
+        viewModel.clanList
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
             onError = {
                 Log.e("LLLLLLL", "Error", it)
             },
