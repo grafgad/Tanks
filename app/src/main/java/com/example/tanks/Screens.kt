@@ -1,10 +1,14 @@
 package com.example.tanks
 
-import com.example.tanks.clans.ClanFragment
-import com.example.tanks.main.MainFragment
+import com.example.tanks.presentation.clans.ClanFragment
+import com.example.tanks.presentation.main.MainFragment
+import com.example.tanks.presentation.players.PlayerFragment
+import com.example.tanks.presentation.globalmap.GlobalMapFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
     fun Main() = FragmentScreen { MainFragment() }
-    fun CLans() = FragmentScreen { ClanFragment() }
+    fun CLan() = FragmentScreen { ClanFragment() }
+    fun Player() = FragmentScreen { PlayerFragment() }
+    fun GlobalMap() = FragmentScreen { GlobalMapFragment() }
 }

@@ -1,4 +1,4 @@
-package com.example.tanks.main
+package com.example.tanks.presentation.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,23 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.tanks.R
-import com.github.terrakok.cicerone.androidx.AppNavigator
 
 class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by viewModels()
 
-    private val navigator = AppNavigator(this, R.id.container)
-
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-        navigatorHolder.setNavigator(navigator)
-    }
-
-    override fun onPause() {
-        navigatorHolder.removeNavigator()
-        super.onPause()
-    }
+//    private val navigator = AppNavigator(this, R.id.container)
+//
+//    override fun onResumeFragments() {
+//        super.onResumeFragments()
+//        navigatorHolder.setNavigator(navigator)
+//    }
+//
+//    override fun onPause() {
+//        navigatorHolder.removeNavigator()
+//        super.onPause()
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
