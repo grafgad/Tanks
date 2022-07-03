@@ -29,7 +29,7 @@ class ClanFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = ClanAdapter()
+        val adapter = ClanListAdapter()
         val recyclerView = binding.clanRecycler
         recyclerView.adapter = adapter
         val clanName = binding.clanNameInput.text
@@ -38,7 +38,7 @@ class ClanFragment : BaseFragment() {
                 Log.e("LLLLLLL", "Error", it)
             },
             onNext = {
-                adapter.updateClans(it)
+                adapter.submitList(it)
             }
         )
 
