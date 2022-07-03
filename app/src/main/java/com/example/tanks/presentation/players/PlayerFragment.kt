@@ -21,7 +21,7 @@ class PlayerFragment : BaseFragment() {
     private val viewModel: PlayerViewModel by viewModels()
     private val binding: FragmentPlayerBinding by viewBinding(CreateMethod.INFLATE)
     private lateinit var recyclerView: RecyclerView
-    private val adapter = PlayerAdapter()
+    private val adapter = PlayerListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +42,7 @@ class PlayerFragment : BaseFragment() {
             .subscribeBy(
                 onError = ErrorLogger::logThrowable,
                 onNext = {
-                    adapter.updatePlayers(it)
+                    adapter.submitList(it)
                 }
             )
             .addTo(compositeDisposable)
