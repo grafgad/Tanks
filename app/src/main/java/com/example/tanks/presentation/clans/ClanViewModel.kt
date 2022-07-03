@@ -1,7 +1,6 @@
 package com.example.tanks.presentation.clans
 
-import com.example.tanks.Api
-import com.example.tanks.ApiDataSource
+import com.example.tanks.di.ServiceLocator.apiDataSource
 import com.example.tanks.model.clan.Clan
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
@@ -11,7 +10,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 
 class ClanViewModel : BaseViewModel() {
 
-    private val apiDataSource: ApiDataSource = Api.getApiDataSource()
+    //перенес apiDataSource в ServiceLocator
     private var searchSubscription: Disposable? = null
     private val _clanList: BehaviorRelay<List<Clan>> = BehaviorRelay.createDefault(emptyList())
     val clanList: Observable<List<Clan>> = _clanList
@@ -25,6 +24,4 @@ class ClanViewModel : BaseViewModel() {
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)
     }
-
-
 }

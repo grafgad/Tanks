@@ -1,5 +1,7 @@
-package com.example.tanks
+package com.example.tanks.di
 
+import com.example.tanks.ApiDataSource
+import com.example.tanks.BuildConfig
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

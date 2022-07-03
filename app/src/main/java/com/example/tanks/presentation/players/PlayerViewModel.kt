@@ -1,7 +1,6 @@
 package com.example.tanks.presentation.players
 
-import com.example.tanks.Api
-import com.example.tanks.ApiDataSource
+import com.example.tanks.di.ServiceLocator.apiDataSource
 import com.example.tanks.model.player.Player
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
@@ -11,7 +10,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 
 class PlayerViewModel : BaseViewModel() {
 
-    private val apiDataSource: ApiDataSource = Api.getApiDataSource()
+    //перенес apiDataSource в ServiceLocator
     private var searchSubscription: Disposable? = null
     private val _playerList: BehaviorRelay<List<Player>> = BehaviorRelay.createDefault(emptyList())
     val playerList: Observable<List<Player>> = _playerList
