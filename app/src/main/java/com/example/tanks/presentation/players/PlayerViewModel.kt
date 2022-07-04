@@ -1,6 +1,6 @@
 package com.example.tanks.presentation.players
 
-import com.example.tanks.di.ServiceLocator.apiDataSource
+import com.example.tanks.di.ServiceLocator
 import com.example.tanks.model.player.Player
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
@@ -8,7 +8,9 @@ import com.jakewharton.rxrelay3.BehaviorRelay
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 
-class PlayerViewModel : BaseViewModel() {
+class PlayerViewModel(
+    private val serviceLocator : ServiceLocator
+) : BaseViewModel() {
 
     //перенес apiDataSource в ServiceLocator
     private var searchSubscription: Disposable? = null
@@ -17,7 +19,7 @@ class PlayerViewModel : BaseViewModel() {
 
     fun onSearchClicked(nickname: String) {
         searchSubscription?.dispose()  //обнуляем предыдущий запрос
-        val searchSubscription = apiDataSource.getPlayersList(nickname)
+        val searchSubscription = serviceLocator.apiDataSource.getPlayersList(nickname)
             .subscribeSafely {
                 _playerList.accept(it.data)
             }

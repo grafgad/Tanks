@@ -1,4 +1,4 @@
-package com.example.tanks
+package com.example.tanks.di
 
 import com.example.tanks.model.clan.ClansResponse
 import com.example.tanks.model.player.PlayerResponse

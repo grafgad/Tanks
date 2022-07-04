@@ -1,6 +1,5 @@
 package com.example.tanks.di
 
-import com.example.tanks.ApiDataSource
 import com.example.tanks.BuildConfig
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -11,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Api {
+object RetrofitService {
 
     private const val baseURL = "https://api.worldoftanks.ru"
     private val retrofit: Retrofit by lazy {
@@ -35,14 +34,15 @@ object Api {
             })
         return client.build()
     }
-}
 
-object ClanApiInterceptor : Interceptor {
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
-        val url = request.url.newBuilder()
-            .addQueryParameter("application_id", BuildConfig.APPLICATION_ID)
-            .build()
-        return chain.proceed(request.newBuilder().url(url).build())
+    object ClanApiInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val request = chain.request()
+            val url = request.url.newBuilder()
+                .addQueryParameter("application_id", BuildConfig.APPLICATION_ID)
+                .build()
+            return chain.proceed(request.newBuilder().url(url).build())
+        }
     }
 }
+
