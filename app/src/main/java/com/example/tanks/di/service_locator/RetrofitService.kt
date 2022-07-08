@@ -1,4 +1,4 @@
-package com.example.tanks.di
+package com.example.tanks.di.service_locator
 
 import com.example.tanks.BuildConfig
 import com.google.gson.GsonBuilder
