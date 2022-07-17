@@ -5,7 +5,8 @@ import com.example.tanks.presentation.players.PlayerFragment
 import dagger.Component
 
 @Component(modules = [
-    NetworkModule::class
+    NetworkModule::class,
+    ViewModelsModule::class
 ])
 interface ApplicationComponent {
 
