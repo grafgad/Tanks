@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 import javax.inject.Inject
 
-class ClanViewModel(
+class ClanViewModel @Inject constructor (
     private val apiDataSource : ApiDataSource
 ) : BaseViewModel() {
 
@@ -28,14 +28,4 @@ class ClanViewModel(
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)
     }
-}
-
-@Suppress("UNCHECKED_CAST")
-class ClanViewModelFactory @Inject constructor(
-    private val apiDataSource : ApiDataSource
-) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ClanViewModel(apiDataSource) as T
-    }
-
 }

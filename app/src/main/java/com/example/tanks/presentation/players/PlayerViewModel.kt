@@ -12,7 +12,7 @@ import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 import javax.inject.Inject
 
-class PlayerViewModel(
+class PlayerViewModel @Inject constructor(
     private val apiDataSource: ApiDataSource
 ) : BaseViewModel() {
 
@@ -29,15 +29,4 @@ class PlayerViewModel(
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)
     }
-}
-
-class PlayerViewModelFactory @Inject constructor(
-    private val apiDataSource: ApiDataSource
-): ViewModelProvider.Factory {
-
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return PlayerViewModel(apiDataSource) as T
-    }
-
 }

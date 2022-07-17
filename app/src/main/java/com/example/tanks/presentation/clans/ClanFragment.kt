@@ -1,15 +1,18 @@
 package com.example.tanks.presentation.clans
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
 import com.example.tanks.databinding.FragmentClansBinding
+import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
@@ -19,7 +22,7 @@ import javax.inject.Inject
 class ClanFragment : BaseFragment() {
 
     @Inject
-    lateinit var clanViewModelFactory: ClanViewModelFactory
+    lateinit var clanViewModelFactory: ViewModelFactory
     private val viewModel: ClanViewModel by viewModels { clanViewModelFactory }
 
     private val binding: FragmentClansBinding by viewBinding(CreateMethod.INFLATE)
@@ -55,7 +58,7 @@ class ClanFragment : BaseFragment() {
 
         binding.clanSearchButton.setOnClickListener {
             viewModel.onSearchClicked(clanName.toString())
+            hideKeyboard(it)
         }
     }
-
 }
