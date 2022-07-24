@@ -19,18 +19,16 @@ abstract class ViewModelsModule {
     @Binds
     @ViewModelKey(ClanViewModel::class)
     @IntoMap
-    protected abstract fun clanViewModel(clanViewModel: ClanViewModel): ViewModel
+    protected abstract fun bindClanViewModel(clanViewModel: ClanViewModel): ViewModel
 
     @Binds
     @ViewModelKey(PlayerViewModel::class)
     @IntoMap
-    protected abstract fun playerViewModel(playerViewModel: PlayerViewModel): ViewModel
+    protected abstract fun bindPlayerViewModel(playerViewModel: PlayerViewModel): ViewModel
 }
 
 @Target(
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.PROPERTY_SETTER,
-    AnnotationTarget.PROPERTY_GETTER
+    AnnotationTarget.FUNCTION
 )
 @MapKey
 annotation class ViewModelKey(val value: KClass<out ViewModel>)

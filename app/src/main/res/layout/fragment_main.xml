@@ -10,53 +10,10 @@
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/authorization"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/input_mail"
-         />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_mail"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_mail"
-        android:textColorHint="@color/customGray"
-        app:layout_constraintTop_toBottomOf="@id/welcome_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/input_password"/>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_password"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_password"
-        android:textColorHint="@color/customGray"
-        app:layout_constraintTop_toBottomOf="@id/input_mail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_button"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_button_text"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_password" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="@string/about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
