@@ -5,4 +5,8 @@
     <string name="account_id">Account ID:</string>
     <string name="players">Players</string>
     <string name="clans">Clans</string>
+    <string name="authorization">Authorization</string>
+    <string name="enter_mail">enter mail</string>
+    <string name="enter_password">enter password</string>
+    <string name="login_button_text">login</string>
 </resources>

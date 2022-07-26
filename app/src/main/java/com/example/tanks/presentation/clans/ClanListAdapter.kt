@@ -47,6 +47,4 @@ class ClanListAdapter :
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.onBind(getItem(position))
     }
-
-
 }

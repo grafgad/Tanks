@@ -16,18 +16,21 @@
         android:id="@+id/clan_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         tools:text="clan id" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/clan_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         tools:text="clan name" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/clan_members_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         tools:text="members count" />
 
     <View

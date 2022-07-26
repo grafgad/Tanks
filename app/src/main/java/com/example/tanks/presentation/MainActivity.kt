@@ -1,7 +1,10 @@
-package com.example.tanks
+package com.example.tanks.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tanks.App
+import com.example.tanks.R
+import com.example.tanks.Screens
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.Screen
 import com.github.terrakok.cicerone.androidx.AppNavigator

@@ -60,8 +60,8 @@ dependencies {
     implementation("io.coil-kt:coil:1.1.1")
 
     //Lifecycle and ViewModel (архитектурные компоненты)
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.0'
 
     //rxJava
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
@@ -83,12 +83,8 @@ dependencies {
     implementation "com.github.terrakok:cicerone:7.1"
 
     //dagger
-    implementation 'com.google.dagger:dagger:2.40.5'
-    implementation "com.google.dagger:dagger-android:2.40.1"
-    implementation "com.google.dagger:dagger-android-support:2.40.1"
-    kapt "com.google.dagger:dagger-compiler:2.40.5"
-    kapt "com.google.dagger:dagger-android-processor:2.38"
-    kapt "com.google.dagger:dagger-android-support:2.40.1"
+    implementation "com.google.dagger:dagger:2.42"
+    kapt "com.google.dagger:dagger-compiler:2.42"
 
     //UI
     implementation 'com.google.android.material:material:1.6.1'
