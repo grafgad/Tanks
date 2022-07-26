@@ -1,6 +1,10 @@
-package com.example.tanks
+package com.example.tanks.di
 
+import com.example.tanks.BuildConfig
+import com.example.tanks.di.service_locator.ApiDataSource
 import com.google.gson.GsonBuilder
+import dagger.Module
+import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -9,23 +13,28 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-object Api {
+private const val baseURL = "https://api.worldoftanks.ru"
 
-    private const val baseURL = "https://api.worldoftanks.ru"
-    private val retrofit: Retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(baseURL)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .client(createOkHttpClient())
-            .build()
-    }
+@Module
+class NetworkModule {
 
-    fun getApiDataSource(): ApiDataSource {
+    @Provides
+    fun provideApiDataSource(retrofit: Retrofit): ApiDataSource {
         return retrofit.create(ApiDataSource::class.java)
     }
 
-    private fun createOkHttpClient(): OkHttpClient {
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(baseURL)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()
             .addInterceptor(ClanApiInterceptor)
             .addInterceptor(HttpLoggingInterceptor().apply {
