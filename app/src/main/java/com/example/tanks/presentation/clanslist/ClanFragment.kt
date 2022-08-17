@@ -1,4 +1,4 @@
-package com.example.tanks.presentation.clans
+package com.example.tanks.presentation.clanslist
 
 import android.os.Bundle
 import android.view.LayoutInflater

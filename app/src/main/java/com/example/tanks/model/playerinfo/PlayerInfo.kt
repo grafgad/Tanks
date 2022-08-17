@@ -1,4 +1,4 @@
-package com.example.tanks.model.playerachievements
+package com.example.tanks.model.playerinfo
 
 import com.google.gson.annotations.SerializedName
 

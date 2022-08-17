@@ -1,7 +1,7 @@
 package com.example.tanks.di
 
-import com.example.tanks.presentation.clans.ClanFragment
-import com.example.tanks.presentation.players.PlayerFragment
+import com.example.tanks.presentation.clanslist.ClanFragment
+import com.example.tanks.presentation.playerslist.PlayerFragment
 import dagger.Component
 
 @Component(modules = [

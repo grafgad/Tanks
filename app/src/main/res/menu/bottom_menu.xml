@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:backgroundTint="@color/custom">
+    android:backgroundTint="@color/background_color">
 
     <item
         android:id="@+id/bottom_menu_players"

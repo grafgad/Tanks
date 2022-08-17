@@ -1,28 +1,26 @@
-package com.example.tanks.presentation.players
+package com.example.tanks.presentation.playerslist
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
 import com.example.tanks.databinding.ItemPlayerBinding
-import com.example.tanks.model.player.Player
-import kotlinx.coroutines.NonDisposableHandle.parent
+import com.example.tanks.model.playerlist.PlayerList
 
-class PlayerListAdapter : ListAdapter<Player, PlayerListAdapter.ItemViewHolder>(DiffCallBack())/*, View.OnClickListener */{
+class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack())/*, View.OnClickListener */{
 
     var onItemCLickListener: (Int) -> Unit = {}
 
-    class DiffCallBack : DiffUtil.ItemCallback<Player>() {
-        override fun areItemsTheSame(oldItem: Player, newItem: Player): Boolean {
+    class DiffCallBack : DiffUtil.ItemCallback<PlayerList>() {
+        override fun areItemsTheSame(oldItem: PlayerList, newItem: PlayerList): Boolean {
             return oldItem.account_id == newItem.account_id
         }
 
-        override fun areContentsTheSame(oldItem: Player, newItem: Player): Boolean {
+        override fun areContentsTheSame(oldItem: PlayerList, newItem: PlayerList): Boolean {
             return oldItem == newItem
         }
     }
@@ -33,13 +31,13 @@ class PlayerListAdapter : ListAdapter<Player, PlayerListAdapter.ItemViewHolder>(
         private val nickname = binding.nicknameText
         private val account = binding.accountText
 
-        fun onBind(player: Player) {
-            nickname.text = player.nickname
-            account.text = player.account_id.toString()
+        fun onBind(playerList: PlayerList) {
+            nickname.text = playerList.nickname
+            account.text = playerList.account_id.toString()
             binding.root.setOnClickListener {
 //                PlayerListAdapter().onClick(it)
 //                PlayerListAdapter().onItemCLickListener(player.account_id)
-                onItemCLickListener(player.account_id)
+                onItemCLickListener(playerList.account_id)
             }
 
         }

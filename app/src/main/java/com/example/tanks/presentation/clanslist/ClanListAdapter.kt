@@ -1,4 +1,4 @@
-package com.example.tanks.presentation.clans
+package com.example.tanks.presentation.clanslist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +9,18 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
 import com.example.tanks.databinding.ItemClanBinding
-import com.example.tanks.model.clan.Clan
+import com.example.tanks.model.clanlist.ClanList
 
 class ClanListAdapter :
-    ListAdapter<Clan, ClanListAdapter.ItemViewHolder>(DiffCallBack()) {
+    ListAdapter<ClanList, ClanListAdapter.ItemViewHolder>(DiffCallBack()) {
 
-    class DiffCallBack : DiffUtil.ItemCallback<Clan>() {
+    class DiffCallBack : DiffUtil.ItemCallback<ClanList>() {
 
-        override fun areItemsTheSame(oldItem: Clan, newItem: Clan): Boolean {
+        override fun areItemsTheSame(oldItem: ClanList, newItem: ClanList): Boolean {
             return oldItem.clan_id == newItem.clan_id
         }
 
-        override fun areContentsTheSame(oldItem: Clan, newItem: Clan): Boolean {
+        override fun areContentsTheSame(oldItem: ClanList, newItem: ClanList): Boolean {
             return oldItem == newItem
         }
     }
@@ -31,11 +31,17 @@ class ClanListAdapter :
         private val clanName = binding.clanName
         private val clanId = binding.clanId
         private val clanMembersCount = binding.clanMembersCount
+        private val clanImage = binding.clanImage
 
-        fun onBind(clan: Clan) {
-            clanId.text = clan.clan_id.toString()
-            clanName.text = clan.name
-            clanMembersCount.text = clan.members_count.toString()
+
+        fun onBind(clanList: ClanList) {
+            val playersCount = itemView.context.getString(R.string.players_count)
+//            val image =
+//                clanList.emblems.getValue("wot")    //clanList.emblems[3].getValue("wot")  //clanList.emblems[3][0]["wot"]
+//            clanImage.load(image)
+            clanId.text = clanList.clan_id.toString()
+            clanName.text = clanList.name
+            clanMembersCount.text = playersCount + clanList.members_count.toString()
         }
     }
 

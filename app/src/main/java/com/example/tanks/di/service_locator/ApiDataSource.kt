@@ -1,8 +1,8 @@
 package com.example.tanks.di.service_locator
 
-import com.example.tanks.model.clan.ClansResponse
-import com.example.tanks.model.player.PlayerResponse
-import com.example.tanks.model.playerachievements.PlayerInfoResponse
+import com.example.tanks.model.clanlist.ClansResponse
+import com.example.tanks.model.playerlist.PlayerListResponse
+import com.example.tanks.model.playerinfo.PlayerInfoBaseResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,10 +17,10 @@ interface ApiDataSource {
     @GET("/wot/account/list/")
     fun getPlayersList(
         @Query("search") player: String
-    ): Single<PlayerResponse>
+    ): Single<PlayerListResponse>
 
     @GET("/wot/account/info/")
-    fun getPlayerAchievements(
+    fun getPlayerInfo(
         @Query("account_id") account_id: Int
-    ): Single<PlayerInfoResponse>
+    ): Single<PlayerInfoBaseResponse>
 }

@@ -1,9 +1,7 @@
-package com.example.tanks.presentation.clans
+package com.example.tanks.presentation.clanslist
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.tanks.di.service_locator.ApiDataSource
-import com.example.tanks.model.clan.Clan
+import com.example.tanks.model.clanlist.ClanList
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
 import com.jakewharton.rxrelay3.BehaviorRelay
@@ -16,14 +14,14 @@ class ClanViewModel @Inject constructor (
 ) : BaseViewModel() {
 
     private var searchSubscription: Disposable? = null
-    private val _clanList: BehaviorRelay<List<Clan>> = BehaviorRelay.createDefault(emptyList())
-    val clanList: Observable<List<Clan>> = _clanList
+    private val _clanListList: BehaviorRelay<List<ClanList>> = BehaviorRelay.createDefault(emptyList())
+    val clanList: Observable<List<ClanList>> = _clanListList
 
     fun onSearchClicked(clanName: String) {
         searchSubscription?.dispose()
         val searchSubscription = apiDataSource.getClanList(clanName)
             .subscribeSafely {
-                _clanList.accept(it.data)
+                _clanListList.accept(it.data)
             }
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)

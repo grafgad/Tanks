@@ -1,4 +1,4 @@
-package com.example.tanks.presentation.players
+package com.example.tanks.presentation.playerslist
 
 import android.os.Bundle
 import android.view.LayoutInflater

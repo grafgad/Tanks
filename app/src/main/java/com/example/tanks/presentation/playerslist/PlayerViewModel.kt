@@ -1,10 +1,7 @@
-package com.example.tanks.presentation.players
+package com.example.tanks.presentation.playerslist
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.tanks.di.service_locator.ApiDataSource
-import com.example.tanks.di.service_locator.ServiceLocator
-import com.example.tanks.model.player.Player
+import com.example.tanks.model.playerlist.PlayerList
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
 import com.jakewharton.rxrelay3.BehaviorRelay
@@ -17,14 +14,14 @@ class PlayerViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private var searchSubscription: Disposable? = null
-    private val _playerList: BehaviorRelay<List<Player>> = BehaviorRelay.createDefault(emptyList())
-    val playerList: Observable<List<Player>> = _playerList
+    private val _playerListList: BehaviorRelay<List<PlayerList>> = BehaviorRelay.createDefault(emptyList())
+    val playerList: Observable<List<PlayerList>> = _playerListList
 
     fun onSearchClicked(nickname: String) {
         searchSubscription?.dispose()  //обнуляем предыдущий запрос
         val searchSubscription = apiDataSource.getPlayersList(nickname)
             .subscribeSafely {
-                _playerList.accept(it.data)
+                _playerListList.accept(it.data)
             }
         this.searchSubscription = searchSubscription
         compositeDisposable.add(searchSubscription)

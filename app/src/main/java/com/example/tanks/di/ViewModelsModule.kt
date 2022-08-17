@@ -2,8 +2,8 @@ package com.example.tanks.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.tanks.presentation.clans.ClanViewModel
-import com.example.tanks.presentation.players.PlayerViewModel
+import com.example.tanks.presentation.clanslist.ClanViewModel
+import com.example.tanks.presentation.playerslist.PlayerViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
