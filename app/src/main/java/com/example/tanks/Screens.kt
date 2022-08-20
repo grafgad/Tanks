@@ -1,14 +1,16 @@
 package com.example.tanks
 
-import com.example.tanks.presentation.clanslist.ClanFragment
+import com.example.tanks.presentation.claninfo.ClanInfo
+import com.example.tanks.presentation.clanslist.ClanListFragment
 import com.example.tanks.presentation.main.MainFragment
-import com.example.tanks.presentation.playeracnievement.PlayerAchievementsFragment
+import com.example.tanks.presentation.playerinfo.PlayerInfo
 import com.example.tanks.presentation.playerslist.PlayerFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {
     fun Main() = FragmentScreen { MainFragment() }
-    fun CLan() = FragmentScreen { ClanFragment() }
+    fun CLan() = FragmentScreen { ClanListFragment() }
     fun Player() = FragmentScreen { PlayerFragment() }
-    fun PlayerDetais(pLayer: Int) = FragmentScreen { PlayerAchievementsFragment(Int) }
+    fun PlayerInfo(pLayer: Int) = FragmentScreen { PlayerInfo(Int) }
+    fun ClanInfo(clan: Int) = FragmentScreen { ClanInfo(Int) }
 }

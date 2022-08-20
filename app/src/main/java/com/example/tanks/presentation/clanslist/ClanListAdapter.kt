@@ -1,5 +1,6 @@
 package com.example.tanks.presentation.clanslist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +8,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
+import coil.load
 import com.example.tanks.R
 import com.example.tanks.databinding.ItemClanBinding
 import com.example.tanks.model.clanlist.ClanList
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ClanListAdapter :
     ListAdapter<ClanList, ClanListAdapter.ItemViewHolder>(DiffCallBack()) {
@@ -29,19 +33,23 @@ class ClanListAdapter :
 
         private val binding: ItemClanBinding by viewBinding()
         private val clanName = binding.clanName
-        private val clanId = binding.clanId
+        private val createdAt = binding.createdDate
         private val clanMembersCount = binding.clanMembersCount
         private val clanImage = binding.clanImage
 
-
         fun onBind(clanList: ClanList) {
-            val playersCount = itemView.context.getString(R.string.players_count)
-//            val image =
-//                clanList.emblems.getValue("wot")    //clanList.emblems[3].getValue("wot")  //clanList.emblems[3][0]["wot"]
-//            clanImage.load(image)
-            clanId.text = clanList.clan_id.toString()
+            val dateOfCreation = clanList.createdAt * 1000
+            val dateFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+            val clanMembers =
+                "${binding.root.resources.getString(R.string.players_count)} ${clanList.members_count}"
+            val image =
+                clanList.emblems.x64.wot
+
+            clanImage.load(image)
+            Log.d("myimage", image)
+            createdAt.text = dateFormat.format(dateOfCreation)
             clanName.text = clanList.name
-            clanMembersCount.text = playersCount + clanList.members_count.toString()
+            clanMembersCount.text = clanMembers
         }
     }
 

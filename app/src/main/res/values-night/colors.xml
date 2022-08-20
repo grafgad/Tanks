@@ -16,4 +16,6 @@
     <color name="colorSecondary">#99FFFFFF</color>
     <color name="colorSecondaryVariant">#252528</color>
     <color name="colorOnSecondary">#FF000000</color>
+    <color name="textColor">#BFBFBF</color>
+
 </resources>

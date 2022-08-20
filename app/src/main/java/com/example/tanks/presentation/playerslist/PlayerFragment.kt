@@ -62,7 +62,7 @@ class PlayerFragment : BaseFragment() {
 
         adapter.setOnItemClickListener {
             Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
-            router.navigateTo(Screens.PlayerDetais(it))
+            router.navigateTo(Screens.PlayerInfo(it))
 //            Bundle().putInt("player_id", it)
         }
 

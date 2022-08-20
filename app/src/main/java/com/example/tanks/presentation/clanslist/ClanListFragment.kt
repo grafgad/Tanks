@@ -9,7 +9,7 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
-import com.example.tanks.databinding.FragmentClansBinding
+import com.example.tanks.databinding.FragmentClanListBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -17,13 +17,13 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
-class ClanFragment : BaseFragment() {
+class ClanListFragment : BaseFragment() {
 
     @Inject
     lateinit var clanViewModelFactory: ViewModelFactory
     private val viewModel: ClanViewModel by viewModels { clanViewModelFactory }
 
-    private val binding: FragmentClansBinding by viewBinding(CreateMethod.INFLATE)
+    private val binding: FragmentClanListBinding by viewBinding(CreateMethod.INFLATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

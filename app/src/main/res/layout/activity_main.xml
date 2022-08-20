@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/background_color"
-        app:itemTextColor="@color/customGray"
+        android:elevation="4dp"
         app:menu="@menu/bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,4 +1,4 @@
-package com.example.tanks.presentation.playeracnievement
+package com.example.tanks.presentation.playerinfo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.tanks.R
-import com.example.tanks.databinding.FragmentPlayerAchievementsBinding
+import com.example.tanks.databinding.FragmentPlayerInfoBinding
 
 
-class PlayerAchievementsFragment(private val playerId: Int.Companion) : Fragment() {
+class PlayerInfo(private val playerId: Int.Companion) : Fragment() {
 
 //    private val player_id: Int by lazy {
 //        arguments!!.getInt("player_id")
 //    }
-    private val binding: FragmentPlayerAchievementsBinding by viewBinding(CreateMethod.INFLATE)
+    private val binding: FragmentPlayerInfoBinding by viewBinding(CreateMethod.INFLATE)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

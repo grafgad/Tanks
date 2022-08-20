@@ -1,6 +1,6 @@
 package com.example.tanks.di
 
-import com.example.tanks.presentation.clanslist.ClanFragment
+import com.example.tanks.presentation.clanslist.ClanListFragment
 import com.example.tanks.presentation.playerslist.PlayerFragment
 import dagger.Component
 
@@ -12,5 +12,5 @@ interface ApplicationComponent {
 
     fun inject(playerFragment: PlayerFragment)
 
-    fun inject(clanFragment: ClanFragment)
+    fun inject(clanListFragment: ClanListFragment)
 }

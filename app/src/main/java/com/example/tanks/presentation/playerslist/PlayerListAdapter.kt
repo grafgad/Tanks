@@ -11,7 +11,7 @@ import com.example.tanks.R
 import com.example.tanks.databinding.ItemPlayerBinding
 import com.example.tanks.model.playerlist.PlayerList
 
-class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack())/*, View.OnClickListener */{
+class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack()) {
 
     var onItemCLickListener: (Int) -> Unit = {}
 
@@ -25,7 +25,7 @@ class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHold
         }
     }
 
-    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+     class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         private val binding: ItemPlayerBinding by viewBinding()
         private val nickname = binding.nicknameText
@@ -35,11 +35,8 @@ class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHold
             nickname.text = playerList.nickname
             account.text = playerList.account_id.toString()
             binding.root.setOnClickListener {
-//                PlayerListAdapter().onClick(it)
-//                PlayerListAdapter().onItemCLickListener(player.account_id)
-                onItemCLickListener(playerList.account_id)
+                 onItemCLickListener.invoke(playerList.account_id)
             }
-
         }
     }
 
@@ -49,14 +46,11 @@ class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHold
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_player, parent, false)
-        return ItemViewHolder(view)
+        return ItemViewHolder(view, onItemCLickListener)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.onBind(getItem(position))
     }
-//
-//    override fun onClick(p0: View?) {
-//        TODO("Not yet implemented")
-//    }
 }
+

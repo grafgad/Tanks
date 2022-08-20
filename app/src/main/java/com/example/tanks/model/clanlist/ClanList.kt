@@ -1,8 +1,6 @@
 package com.example.tanks.model.clanlist
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
-
 
 data class ClanList(
     @SerializedName("clan_id")
@@ -11,6 +9,17 @@ data class ClanList(
     val name: String,
     @SerializedName("members_count")
     val members_count: Int,
-//    @SerializedName("emblems")
-//    val emblems: EmblemResponse
-)
+    @SerializedName("created_at")
+    val createdAt: Long,
+    @SerializedName("emblems")
+    val emblems: emblemx64
+) {
+    data class EmblemResponse(
+        @SerializedName("wot") val wot: String,
+        @SerializedName("portal") val portal: String
+    )
+
+    data class emblemx64(
+        @SerializedName("x64") val x64: EmblemResponse
+    )
+}

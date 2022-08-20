@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.konan.properties.Properties
+import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
 
 plugins {
     id("com.android.application")
@@ -39,7 +40,7 @@ android {
         }
         getByName("debug") {
             isMinifyEnabled = false
-            (this as ExtensionAware).configure<com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension> {
+            (this as ExtensionAware).configure<CrashlyticsExtension> {
                 mappingFileUploadEnabled = false
             }
         }
