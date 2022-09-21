@@ -28,6 +28,7 @@ class PlayerListAdapter : ListAdapter<Player, PlayerListAdapter.ItemViewHolder>(
         private val binding: ItemPlayerBinding by viewBinding()
         private val nickname = binding.nicknameText
         private val account = binding.accountText
+
         fun onBind(player: Player) {
             nickname.text = player.nickname
             account.text = player.account_id.toString()
