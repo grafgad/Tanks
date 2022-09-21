@@ -2,8 +2,6 @@ package com.example.tanks.presentation
 
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tanks.App
@@ -47,29 +45,29 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        makeArtificialCrash()
+//        makeArtificialCrash()
         remoteConfig()
     }
 
-    private fun makeArtificialCrash() {
-        val crashButton = Button(this)
-        crashButton.text = "Test Crash"
-        try {
-            crashButton.setOnClickListener {
-                throw RuntimeException("Test Crash") // Force a crash
-            }
-        } catch (e: Exception) {
-            Firebase.crashlytics.recordException(e)
-            // handle your exception here
-        }
-
-        addContentView(
-            crashButton, ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-        )
-    }
+//    private fun makeArtificialCrash() {
+//        val crashButton = Button(this)
+//        crashButton.text = "Test Crash"
+//        try {
+//            crashButton.setOnClickListener {
+//                throw RuntimeException("Test Crash") // Force a crash
+//            }
+//        } catch (e: Exception) {
+//            Firebase.crashlytics.recordException(e)
+//            // handle your exception here
+//        }
+//
+//        addContentView(
+//            crashButton, ViewGroup.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT
+//            )
+//        )
+//    }
 
     private fun remoteConfig() {
         val remoteConfig = Firebase.remoteConfig

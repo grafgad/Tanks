@@ -13,7 +13,7 @@ import com.example.tanks.model.playerlist.PlayerList
 
 class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack()) {
 
-    var onItemCLickListener: (Int) -> Unit = {}
+    private var onItemCLickListener: (Int) -> Unit = {}
 
     class DiffCallBack : DiffUtil.ItemCallback<PlayerList>() {
         override fun areItemsTheSame(oldItem: PlayerList, newItem: PlayerList): Boolean {

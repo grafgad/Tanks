@@ -43,7 +43,7 @@ class ClanListAdapter :
             val clanMembers =
                 "${binding.root.resources.getString(R.string.players_count)} ${clanList.members_count}"
             val image =
-                clanList.emblems.x64.wot
+                clanList.emblems.x195.portal
 
             clanImage.load(image)
             Log.d("myimage", image)

@@ -1,6 +1,10 @@
 package com.example.tanks.di.service_locator
 
 import com.example.tanks.BuildConfig
+import com.example.tanks.di.ClanInfoDeserializer
+import com.example.tanks.di.PlayerInfoDeserializer
+import com.example.tanks.model.claninfo.ClanInfo
+import com.example.tanks.model.playerinfo.PlayerInfo
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -16,15 +20,25 @@ object RetrofitService {
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(baseURL)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .addConverterFactory(
+                GsonConverterFactory.create(
+                    GsonBuilder()
+                        .setLenient()
+                            //десериализатор для получения данных игрока
+                        .registerTypeAdapter(PlayerInfo::class.java, PlayerInfoDeserializer())
+                        .registerTypeAdapter(ClanInfo::class.java, ClanInfoDeserializer())
+                        .create()
+                )
+            )
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(createOkHttpClient())
             .build()
     }
 
-    fun getApiDataSource(): ApiDataSource {
-        return retrofit.create(ApiDataSource::class.java)
-    }
+//    Использовался в сервис-локаторе
+//    fun getApiDataSource(): ApiDataSource {
+//        return retrofit.create(ApiDataSource::class.java)
+//    }
 
     private fun createOkHttpClient(): OkHttpClient {
         val client = OkHttpClient.Builder()

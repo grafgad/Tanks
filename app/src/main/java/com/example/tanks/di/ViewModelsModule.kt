@@ -2,8 +2,10 @@ package com.example.tanks.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.tanks.presentation.claninfo.ClanInfoViewModel
 import com.example.tanks.presentation.clanslist.ClanViewModel
-import com.example.tanks.presentation.playerslist.PlayerViewModel
+import com.example.tanks.presentation.playerinfo.PlayerInfoViewModel
+import com.example.tanks.presentation.playerslist.PlayerListViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module
@@ -17,14 +19,24 @@ abstract class ViewModelsModule {
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
+    @ViewModelKey(ClanInfoViewModel::class)
+    @IntoMap
+    protected abstract fun bindCLanInfoViewModel(clanInfoViewModel: ClanInfoViewModel): ViewModel
+
+    @Binds
+    @ViewModelKey(PlayerInfoViewModel::class)
+    @IntoMap
+    protected abstract fun bindPlayerInfoViewModel(playerInfoViewModel: PlayerInfoViewModel): ViewModel
+
+    @Binds
     @ViewModelKey(ClanViewModel::class)
     @IntoMap
     protected abstract fun bindClanViewModel(clanViewModel: ClanViewModel): ViewModel
 
     @Binds
-    @ViewModelKey(PlayerViewModel::class)
+    @ViewModelKey(PlayerListViewModel::class)
     @IntoMap
-    protected abstract fun bindPlayerViewModel(playerViewModel: PlayerViewModel): ViewModel
+    protected abstract fun bindPlayerListViewModel(playerListViewModel: PlayerListViewModel): ViewModel
 }
 
 @Target(

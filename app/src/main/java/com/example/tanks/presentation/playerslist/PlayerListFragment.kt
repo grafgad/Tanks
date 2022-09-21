@@ -12,7 +12,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
 import com.example.tanks.Screens
-import com.example.tanks.databinding.FragmentPlayerBinding
+import com.example.tanks.databinding.FragmentPlayerListBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -20,14 +20,14 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
-class PlayerFragment : BaseFragment() {
+class PlayerListFragment : BaseFragment() {
 
     private val router = App.INSTANCE.router
     @Inject
-    lateinit var playerViewModelFactory: ViewModelFactory
-    private val viewModel: PlayerViewModel by viewModels { playerViewModelFactory }
+    lateinit var playerListViewModelFactory: ViewModelFactory
+    private val viewModel: PlayerListViewModel by viewModels { playerListViewModelFactory }
 
-    private val binding: FragmentPlayerBinding by viewBinding(CreateMethod.INFLATE)
+    private val binding: FragmentPlayerListBinding by viewBinding(CreateMethod.INFLATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,9 +61,7 @@ class PlayerFragment : BaseFragment() {
             .addTo(compositeDisposable)
 
         adapter.setOnItemClickListener {
-            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
             router.navigateTo(Screens.PlayerInfo(it))
-//            Bundle().putInt("player_id", it)
         }
 
         binding.searchButton.setOnClickListener {

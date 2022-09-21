@@ -15,6 +15,6 @@
     <string name="enter_clan_name">Введите название клана</string>
     <string name="search">Найти</string>
     <string name="enter_player_name">введите имя игрока</string>
-    <string name="my_stack">My stack: \nKotlin \nBinding by Kirill Rozov \nCicerone \nRetrofit, Okhttp \nRxJava \nDagger \nLeakCanary</string>
+    <string name="my_stack">My stack:\n \nKotlin \nCicerone \nBinding by Kirill Rozov \nRetrofit, Okhttp \nRxJava \nDagger \nLeakCanary</string>
 
 </resources>

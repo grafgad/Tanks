@@ -3,6 +3,7 @@ package com.example.tanks.model.playerinfo
 import com.google.gson.annotations.SerializedName
 
 data class PlayerInfo(
+    @SerializedName ("account_id") val accountId: Int,
     @SerializedName ("global_rating") val global_rating: Int,
     @SerializedName ("clan_id") val clan_id: Int,
     @SerializedName ("created_at") val created_at: Long,

@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.playerslist.PlayerFragment">
+    tools:context=".presentation.playerslist.PlayerListFragment">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_player"

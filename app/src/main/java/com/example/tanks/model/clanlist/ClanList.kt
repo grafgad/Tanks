@@ -12,14 +12,13 @@ data class ClanList(
     @SerializedName("created_at")
     val createdAt: Long,
     @SerializedName("emblems")
-    val emblems: emblemx64
+    val emblems: EmblemX195
 ) {
-    data class EmblemResponse(
-        @SerializedName("wot") val wot: String,
-        @SerializedName("portal") val portal: String
+    data class EmblemX195(
+        @SerializedName("x195") val x195: EmblemResponseX195
     )
 
-    data class emblemx64(
-        @SerializedName("x64") val x64: EmblemResponse
+    data class EmblemResponseX195(
+        @SerializedName("portal") val portal: String
     )
 }
