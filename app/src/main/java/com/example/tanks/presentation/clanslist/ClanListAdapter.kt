@@ -18,6 +18,8 @@ import java.util.*
 class ClanListAdapter :
     ListAdapter<ClanList, ClanListAdapter.ItemViewHolder>(DiffCallBack()) {
 
+    private var onItemCLickListener: (Int) -> Unit = {}
+
     class DiffCallBack : DiffUtil.ItemCallback<ClanList>() {
 
         override fun areItemsTheSame(oldItem: ClanList, newItem: ClanList): Boolean {
@@ -29,7 +31,7 @@ class ClanListAdapter :
         }
     }
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         private val binding: ItemClanBinding by viewBinding()
         private val clanName = binding.clanName
@@ -50,12 +52,20 @@ class ClanListAdapter :
             createdAt.text = dateFormat.format(dateOfCreation)
             clanName.text = clanList.name
             clanMembersCount.text = clanMembers
+
+            binding.root.setOnClickListener {
+                onItemCLickListener.invoke(clanList.clan_id)
+            }
         }
+    }
+
+    fun setOnItemClickListener (onItemCLickListener: (Int) -> Unit) {
+        this.onItemCLickListener = onItemCLickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_clan, parent, false)
-        return ItemViewHolder(view)
+        return ItemViewHolder(view, onItemCLickListener)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

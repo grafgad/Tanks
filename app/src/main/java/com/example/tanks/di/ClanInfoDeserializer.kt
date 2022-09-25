@@ -14,7 +14,7 @@ class ClanInfoDeserializer : JsonDeserializer<ClanInfo?> {
         context: JsonDeserializationContext?
     ): ClanInfo? {
         val jsonObject = json?.asJsonObject ?: return null
-        val key = jsonObject.keySet()?.firstOrNull()?.toString() ?: return null
+        val key = jsonObject.keySet()?.first()?.toString() ?: return null
         val clanJsonObject = jsonObject.get(key) ?: return null
         return Gson().fromJson(clanJsonObject, ClanInfo::class.java)
     }

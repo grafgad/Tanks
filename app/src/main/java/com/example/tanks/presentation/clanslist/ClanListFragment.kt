@@ -9,6 +9,7 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
+import com.example.tanks.Screens
 import com.example.tanks.databinding.FragmentClanListBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
@@ -19,6 +20,7 @@ import javax.inject.Inject
 
 class ClanListFragment : BaseFragment() {
 
+    private val router = App.INSTANCE.router
     @Inject
     lateinit var clanViewModelFactory: ViewModelFactory
     private val viewModel: ClanViewModel by viewModels { clanViewModelFactory }
@@ -53,6 +55,10 @@ class ClanListFragment : BaseFragment() {
                 }
             )
             .addTo(compositeDisposable)
+
+        adapter.setOnItemClickListener {
+            router.navigateTo(Screens.ClanInfo(it))
+        }
 
         binding.clanSearchButton.setOnClickListener {
             viewModel.onSearchClicked(clanName.toString())

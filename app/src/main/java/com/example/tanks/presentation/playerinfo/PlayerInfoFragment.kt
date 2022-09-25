@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -41,24 +40,17 @@ class PlayerInfoFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var nickname = ""
-        var rating = ""
         viewModel.playerInfo
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = ErrorLogger::logThrowable,
                 onNext = {
-                    rating = it.global_rating.toString()
-                    nickname = it.nickname
+                    binding.playerRating.text = it.global_rating.toString()
+                    binding.nicknameText.text = it.nickname
                 }
             )
             .addTo(compositeDisposable)
-        viewModel.getSomeInfo(playerId)
-
-        binding.nicknameText.text = nickname
-        binding.playerRating.text = rating
-
-
+        viewModel.getPlayerInfo(playerId)
     }
 
 }

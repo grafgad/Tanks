@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/clan_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:drawable/gallery_thumb" />
+
+    <TextView
+        android:id="@+id/clan_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/clan_image"
+        tools:text="Clan name" />
+
+    <TextView
+        android:id="@+id/clan_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/clan_name"
+        tools:text="Clan tag" />
+
+    <TextView
+        android:id="@+id/clan_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/clan_tag"
+        tools:text="Description" />
+
+    <TextView
+        android:id="@+id/clan_members_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/clan_description"
+        tools:text="Members count"/>
+
+    <TextView
+        android:id="@+id/motto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/clan_members_count"
+        tools:text="Motto"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

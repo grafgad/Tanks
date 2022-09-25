@@ -14,20 +14,21 @@ class ClanInfoViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private var searchSubscription: Disposable? = null
-//    private val _clanInfo: BehaviorRelay<ClanInfo> = BehaviorRelay.createDefault(
-//        ClanInfo(
-//            0,"",0,"","",
-//        )
-//    )
-//    val clanInfo: Observable<ClanInfo> = _clanInfo
+    private val _clanInfo: BehaviorRelay<ClanInfo> = BehaviorRelay.createDefault(
+        ClanInfo(
+            0, ClanInfo.EmblemX256(ClanInfo.EmblemResponseX256("")),"","","",0,"",
+        )
+    )
+    val clanInfo: Observable<ClanInfo> = _clanInfo
 
     fun getClanInfo(clanId: Int) {
         searchSubscription?.dispose()
-        val mSearchSubscription = apiDataSource.getClanInfo(clanId)
+        val mSearchSubscription = apiDataSource
+            .getClanInfo(clanId)
             .subscribeSafely {
-//                _clanInfo.accept(
-//                    it.data
-//                )
+                _clanInfo.accept(
+                    it.data
+                )
             }
         this.searchSubscription = mSearchSubscription
         compositeDisposable.add(mSearchSubscription)

@@ -22,12 +22,10 @@ class PlayerInfoViewModel @Inject constructor(
     )
     val playerInfo: Observable<PlayerInfo> = _playerInfo
 
-    fun getSomeInfo(accountId: Int) {
+    fun getPlayerInfo(accountId: Int) {
         searchSubscription?.dispose()
-        val searchSubscription = apiDataSource.getPlayerInfo(
-            accountId
-//            _playerInfo.value.accountId
-        )
+        val searchSubscription = apiDataSource
+            .getPlayerInfo(accountId)
             .subscribeSafely {
                 _playerInfo.accept(
                     it.data

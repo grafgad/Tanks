@@ -14,7 +14,7 @@ class PlayerInfoDeserializer: JsonDeserializer<PlayerInfo?> {
         context: JsonDeserializationContext?
     ): PlayerInfo? {
         val jsonObject = json?.asJsonObject ?: return null
-        val key = jsonObject.keySet()?.firstOrNull()?.toString() ?: return null
+        val key = jsonObject.keySet()?.first()?.toString() ?: return null
         val playerJsonObject = jsonObject.get(key) ?: return null
         return Gson().fromJson(playerJsonObject, PlayerInfo::class.java)
     }
