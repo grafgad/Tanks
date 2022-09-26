@@ -68,10 +68,8 @@ class PlayerListFragment : BaseFragment() {
             hideKeyboard(it)
         }
     }
+
     companion object {
         var playerId: Int = 0
-//        fun newInstanse(): Int {
-//            return playerId
-//        }
     }
 }
