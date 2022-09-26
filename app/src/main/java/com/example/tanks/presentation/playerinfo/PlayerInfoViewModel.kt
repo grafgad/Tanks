@@ -25,7 +25,10 @@ class PlayerInfoViewModel @Inject constructor(
             0,
             PlayerInfo.Statistics(
                 0,
-                PlayerInfo.Statistics.AllResponse(0)
+                PlayerInfo.Statistics.AllResponse(
+                    0,
+                    0
+                )
             )
         )
     )

@@ -22,5 +22,6 @@
     <string name="rating">"Личный рейтинг: "</string>
     <string name="trees_cut">"Повалено деревьев: "</string>
     <string name="max_frags">"Максимум уничтожено за бой: "</string>
+    <string name="battle">"Проведено боёв: "</string>
 
 </resources>
