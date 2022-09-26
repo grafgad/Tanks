@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
+import com.example.tanks.R
 import com.example.tanks.databinding.FragmentClanInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
@@ -63,11 +63,13 @@ class ClanInfoFragment(
                         clanImage.load(it.clanImage.x256.wowp)
                         clanName.text = it.name
                         clanTag.text = it.clanTag
-                        clanDescription.text = it.description
-                        clanMembersCount.text = it.members_count.toString()
                         motto.text = it.motto
+                        clanMembersCount.text = buildString {
+                            append(getString(R.string.members_count))
+                            append(it.members_count.toString())
+                        }
+                        clanDescription.text = it.description
                     }
-
                 },
                 onError = ErrorLogger::logThrowable
             )

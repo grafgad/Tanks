@@ -16,6 +16,7 @@ class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHold
     private var onItemCLickListener: (Int) -> Unit = {}
 
     class DiffCallBack : DiffUtil.ItemCallback<PlayerList>() {
+
         override fun areItemsTheSame(oldItem: PlayerList, newItem: PlayerList): Boolean {
             return oldItem.account_id == newItem.account_id
         }

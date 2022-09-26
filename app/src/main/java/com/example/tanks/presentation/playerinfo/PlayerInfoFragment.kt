@@ -9,12 +9,15 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
+import com.example.tanks.R
 import com.example.tanks.databinding.FragmentPlayerInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 class PlayerInfoFragment(
@@ -45,12 +48,36 @@ class PlayerInfoFragment(
             .subscribeBy(
                 onError = ErrorLogger::logThrowable,
                 onNext = {
-                    binding.playerRating.text = it.global_rating.toString()
-                    binding.nicknameText.text = it.nickname
+                    with(binding) {
+                        nicknameText.text = it.nickname
+                        playerRating.text = buildString {
+                            append(getString(R.string.rating))
+                            append(it.global_rating.toString())
+                        }
+                        inGame.text = String.format(
+                            "%s %s",
+                            getString(R.string.in_game),
+                            getDate(it.created_at)
+                        )
+                        lastBattleTimeText.text = buildString {
+                            append(getString(R.string.last_battle))
+                            append(getDate(it.last_battle_time))
+                        }
+                    }
                 }
             )
             .addTo(compositeDisposable)
         viewModel.getPlayerInfo(playerId)
+    }
+
+    private fun getDate(date: Long): String? {
+        return try {
+            val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+            val netDate = Date( date * 1000)
+            sdf.format(netDate)
+        } catch (e: Exception) {
+            e.toString()
+        }
     }
 
 }
