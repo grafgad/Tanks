@@ -16,5 +16,9 @@
     <string name="search">Найти</string>
     <string name="enter_player_name">введите имя игрока</string>
     <string name="my_stack">My stack:\n \nKotlin \nCicerone \nBinding by Kirill Rozov \nRetrofit, Okhttp \nRxJava \nDagger \nLeakCanary</string>
+    <string name="last_battle">"Последний бой сыгран "</string>
+    <string name="in_game">"В игре с "</string>
+    <string name="members_count">"Кол-во игроков: "</string>
+    <string name="rating">"Личный рейтинг: "</string>
 
 </resources>

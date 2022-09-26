@@ -33,27 +33,28 @@
         tools:text="Clan tag" />
 
     <TextView
-        android:id="@+id/clan_description"
+        android:id="@+id/motto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/clan_tag"
-        tools:text="Description" />
+        tools:text="Motto" />
 
     <TextView
         android:id="@+id/clan_members_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/clan_description"
-        tools:text="Members count"/>
+        app:layout_constraintTop_toBottomOf="@id/motto"
+        tools:text="Members count" />
 
     <TextView
-        android:id="@+id/motto"
+        android:id="@+id/clan_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/clan_members_count"
-        tools:text="Motto"/>
+        tools:text="Description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
