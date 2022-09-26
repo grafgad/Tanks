@@ -46,4 +46,20 @@
         app:layout_constraintTop_toBottomOf="@+id/in_game"
         tools:text="last_battle" />
 
+    <TextView
+        android:id="@+id/trees_cut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/last_battle_time_text"
+        tools:text="trees_cut" />
+
+    <TextView
+        android:id="@+id/max_frags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/trees_cut"
+        tools:text="max_frags" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

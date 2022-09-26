@@ -17,7 +17,16 @@ class PlayerInfoViewModel @Inject constructor(
     private var searchSubscription: Disposable? = null
     private var _playerInfo: BehaviorRelay<PlayerInfo> = BehaviorRelay.createDefault(
         PlayerInfo(
-            0, 0, 0, 0, 0, ""
+            0,
+            "",
+            0,
+            0,
+            0,
+            0,
+            PlayerInfo.Statistics(
+                0,
+                PlayerInfo.Statistics.AllResponse(0)
+            )
         )
     )
     val playerInfo: Observable<PlayerInfo> = _playerInfo
