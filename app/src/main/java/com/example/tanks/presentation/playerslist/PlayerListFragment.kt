@@ -1,20 +1,16 @@
-package com.example.tanks.presentation.players
+package com.example.tanks.presentation.playerslist
 
-import android.content.Context
 import android.os.Bundle
-import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.ErrorLogger
-import com.example.tanks.databinding.FragmentPlayerBinding
+import com.example.tanks.Screens
+import com.example.tanks.databinding.FragmentPlayerListBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -22,13 +18,15 @@ import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
-class PlayerFragment : BaseFragment() {
+class PlayerListFragment : BaseFragment() {
+
+    private val router = App.INSTANCE.router
 
     @Inject
-    lateinit var playerViewModelFactory: ViewModelFactory
-    private val viewModel: PlayerViewModel by viewModels { playerViewModelFactory }
+    lateinit var playerListViewModelFactory: ViewModelFactory
+    private val viewModel: PlayerListViewModel by viewModels { playerListViewModelFactory }
 
-    private val binding: FragmentPlayerBinding by viewBinding(CreateMethod.INFLATE)
+    private val binding: FragmentPlayerListBinding by viewBinding(CreateMethod.INFLATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +43,11 @@ class PlayerFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView = binding.playersResult
         val adapter = PlayerListAdapter()
+        val recyclerView = binding.playersResult
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
         val nickname = binding.inputPlayer.text
+
         viewModel.playerList
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
@@ -60,6 +57,10 @@ class PlayerFragment : BaseFragment() {
                 }
             )
             .addTo(compositeDisposable)
+
+        adapter.setOnItemClickListener {
+            router.navigateTo(Screens.PlayerInfo(it))
+        }
 
         binding.searchButton.setOnClickListener {
             viewModel.onSearchClicked(nickname.toString())

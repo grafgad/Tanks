@@ -5,13 +5,14 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.players.PlayerFragment">
+    tools:context=".presentation.playerslist.PlayerListFragment">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_player"
+        android:layout_marginTop="40dp"
         android:layout_width="0dp"
         android:layout_height="120dp"
-        android:hint="введите имя игрока"
+        android:hint="@string/enter_player_name"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,9 +20,13 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/search_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="search"
+        android:text="@string/search"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_player" />
 
     <androidx.recyclerview.widget.RecyclerView

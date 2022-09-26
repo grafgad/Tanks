@@ -2,6 +2,8 @@ package com.example.tanks.di
 
 import com.example.tanks.BuildConfig
 import com.example.tanks.di.service_locator.ApiDataSource
+import com.example.tanks.model.claninfo.ClanInfo
+import com.example.tanks.model.playerinfo.PlayerInfo
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -27,7 +29,17 @@ class NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseURL)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .addConverterFactory(
+                GsonConverterFactory.create(
+                    GsonBuilder()
+                        .setLenient()
+                        //десериализатор для получения данных игрока
+                        .registerTypeAdapter(PlayerInfo::class.java, PlayerInfoDeserializer())
+                        //десериализатор для получения данных клана
+                        .registerTypeAdapter(ClanInfo::class.java, ClanInfoDeserializer())
+                        .create()
+                )
+            )
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .client(okHttpClient)
             .build()

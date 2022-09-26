@@ -5,19 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentation.clans.ClanFragment">
+    tools:context=".presentation.clanslist.ClanListFragment">
 
     <com.google.android.material.textfield.TextInputEditText
+        android:layout_marginTop="40dp"
         android:id="@+id/clan_name_input"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:hint="Введите название клана"/>
+        android:hint="@string/enter_clan_name"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/clan_search_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="search"
+        android:text="@string/search"
+        android:textStyle="bold"
+        android:gravity="center"
         android:layout_gravity="center"/>
 
 
