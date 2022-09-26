@@ -20,5 +20,7 @@
     <string name="in_game">"В игре с "</string>
     <string name="members_count">"Кол-во игроков: "</string>
     <string name="rating">"Личный рейтинг: "</string>
+    <string name="trees_cut">"Повалено деревьев: "</string>
+    <string name="max_frags">"Максимум уничтожено за бой: "</string>
 
 </resources>

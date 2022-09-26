@@ -63,6 +63,14 @@ class PlayerInfoFragment(
                             append(getString(R.string.last_battle))
                             append(getDate(it.last_battle_time))
                         }
+                        treesCut.text = buildString {
+                            append(getString(R.string.trees_cut))
+                            append(it.statistics.treesCut.toString())
+                        }
+                        maxFrags.text = buildString {
+                            append(getString(R.string.max_frags))
+                            append(it.statistics.all.maxFrags.toString())
+                        }
                     }
                 }
             )
