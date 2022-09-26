@@ -70,6 +70,10 @@ class PlayerInfoFragment : BaseFragment() {
                             append(getString(R.string.max_frags))
                             append(it.statistics.all.maxFrags.toString())
                         }
+                        battle.text = buildString {
+                            append(getString(R.string.battle))
+                            append(it.statistics.all.battles.toString())
+                        }
                     }
                 }
             )

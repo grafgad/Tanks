@@ -16,7 +16,8 @@ data class PlayerInfo(
         @SerializedName("all") val all: AllResponse
     ) {
         data class AllResponse(
-            @SerializedName("max_frags") val maxFrags: Int
+            @SerializedName("max_frags") val maxFrags: Int,
+            @SerializedName("battles") val battles: Int
         )
     }
 }
