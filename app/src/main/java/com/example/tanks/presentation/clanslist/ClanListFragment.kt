@@ -21,6 +21,7 @@ import javax.inject.Inject
 class ClanListFragment : BaseFragment() {
 
     private val router = App.INSTANCE.router
+
     @Inject
     lateinit var clanViewModelFactory: ViewModelFactory
     private val viewModel: ClanViewModel by viewModels { clanViewModelFactory }
@@ -57,12 +58,17 @@ class ClanListFragment : BaseFragment() {
             .addTo(compositeDisposable)
 
         adapter.setOnItemClickListener {
-            router.navigateTo(Screens.ClanInfo(it))
+            clanId = it
+            router.navigateTo(Screens.ClanInfo())
         }
 
         binding.clanSearchButton.setOnClickListener {
             viewModel.onSearchClicked(clanName.toString())
             hideKeyboard(it)
         }
+    }
+
+    companion object {
+        var clanId: Int = 0
     }
 }

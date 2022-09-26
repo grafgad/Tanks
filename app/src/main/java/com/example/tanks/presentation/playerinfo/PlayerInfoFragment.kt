@@ -13,6 +13,7 @@ import com.example.tanks.R
 import com.example.tanks.databinding.FragmentPlayerInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
+import com.example.tanks.presentation.playerslist.PlayerListFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
@@ -20,9 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class PlayerInfoFragment(
-    private val playerId: Int
-) : BaseFragment() {
+class PlayerInfoFragment : BaseFragment() {
 
     @Inject
     lateinit var playerInfoViewModelFactory: ViewModelFactory
@@ -75,17 +74,18 @@ class PlayerInfoFragment(
                 }
             )
             .addTo(compositeDisposable)
+
+        val playerId = PlayerListFragment.playerId
         viewModel.getPlayerInfo(playerId)
     }
 
     private fun getDate(date: Long): String? {
         return try {
             val sdf = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-            val netDate = Date( date * 1000)
+            val netDate = Date(date * 1000)
             sdf.format(netDate)
         } catch (e: Exception) {
             e.toString()
         }
     }
-
 }

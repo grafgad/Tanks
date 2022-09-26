@@ -14,26 +14,13 @@ import com.example.tanks.R
 import com.example.tanks.databinding.FragmentClanInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
+import com.example.tanks.presentation.clanslist.ClanListFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
-class ClanInfoFragment(
-    private val clanId: Int
-) : BaseFragment() {
-
-//    private val clan by lazy {
-//        arguments?.getString("CLAN-ID")
-//    }
-//
-//    companion object {
-//        fun newInstance(clanId: Int): ClanInfoFragment {
-//            return ClanInfoFragment().apply {
-//                arguments = bundleOf("CLAN-ID" to clanId)
-//            }
-//        }
-//    }
+class ClanInfoFragment : BaseFragment() {
 
     @Inject
     lateinit var clanInfoViewModelFactory: ViewModelFactory
@@ -74,8 +61,8 @@ class ClanInfoFragment(
                 onError = ErrorLogger::logThrowable
             )
             .addTo(compositeDisposable)
+
+        val clanId = ClanListFragment.clanId
         viewModel.getClanInfo(clanId)
     }
-
-
 }
