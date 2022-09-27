@@ -1,7 +1,9 @@
 package com.example.tanks.di
 
 import com.example.tanks.BuildConfig
-import com.example.tanks.di.service_locator.ApiDataSource
+import com.example.tanks.apisource.ApiDataSource
+import com.example.tanks.apisource.ClanInfoDeserializer
+import com.example.tanks.apisource.PlayerInfoDeserializer
 import com.example.tanks.model.claninfo.ClanInfo
 import com.example.tanks.model.playerinfo.PlayerInfo
 import com.google.gson.GsonBuilder

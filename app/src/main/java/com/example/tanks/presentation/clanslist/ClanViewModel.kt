@@ -1,6 +1,6 @@
 package com.example.tanks.presentation.clanslist
 
-import com.example.tanks.di.service_locator.ApiDataSource
+import com.example.tanks.apisource.ApiDataSource
 import com.example.tanks.model.clanlist.ClanList
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely

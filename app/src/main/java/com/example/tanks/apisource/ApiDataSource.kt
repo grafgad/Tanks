@@ -1,4 +1,4 @@
-package com.example.tanks.di.service_locator
+package com.example.tanks.apisource
 
 import com.example.tanks.model.claninfo.ClanInfoResponse
 import com.example.tanks.model.clanlist.ClansListResponse

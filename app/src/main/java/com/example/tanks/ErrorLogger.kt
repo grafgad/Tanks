@@ -4,12 +4,12 @@ import android.util.Log
 
 object ErrorLogger {
     fun logThrowable(throwable: Throwable) {
-        Log.e("LLLLLLL", "Error", throwable)
+        Log.e("ERROR_LOG", "Error", throwable)
     }
 }
 
 object SuccessLogger {
     fun logAnswer(T: Any) {
-        Log.d("LLLLLLL", T.toString())
+        Log.d("SUCCESS_LOG", T.toString())
     }
 }

@@ -89,7 +89,7 @@ dependencies {
 
     //Lifecycle and ViewModel (архитектурные компоненты)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
-    implementation("androidx.fragment:fragment-ktx:1.5.2")
+    implementation("androidx.fragment:fragment-ktx:1.5.3")
 
     //rxJava
     implementation("io.reactivex.rxjava3:rxandroid:3.0.0")

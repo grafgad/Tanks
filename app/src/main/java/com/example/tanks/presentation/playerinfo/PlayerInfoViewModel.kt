@@ -1,7 +1,7 @@
 package com.example.tanks.presentation.playerinfo
 
 
-import com.example.tanks.di.service_locator.ApiDataSource
+import com.example.tanks.apisource.ApiDataSource
 import com.example.tanks.model.playerinfo.PlayerInfo
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
