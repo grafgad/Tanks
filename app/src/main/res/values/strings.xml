@@ -1,16 +1,10 @@
 <resources>
     <string name="app_name">Tanks</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nickname">Nickname:</string>
     <string name="account_id">Account ID:</string>
     <string name="players">Игроки</string>
     <string name="clans">Кланы</string>
     <string name="about">Учебное приложение для отработки работы с API</string>
-    <string name="enter_mail">enter mail</string>
-    <string name="enter_password">enter password</string>
-    <string name="login_button_text">login</string>
-    <string name="firstRemote">firstRemote</string>
-    <string name="home_alert">"My first remote message, which i've sent from Resource"</string>
     <string name="players_count">"Кол-во игроков:  "</string>
     <string name="enter_clan_name">Введите название клана</string>
     <string name="search">Найти</string>
@@ -23,5 +17,12 @@
     <string name="trees_cut">"Повалено деревьев: "</string>
     <string name="max_frags">"Максимум уничтожено за бой: "</string>
     <string name="battle">"Проведено боёв: "</string>
+    <string name="max_xp">"Максимальный опыт за бой: "</string>
+    <string name="hits_percents">"Процент попаданий: "</string>
+    <string name="wins">"Победы: "</string>
+    <string name="wins_percent">"Процент побед: "</string>
+    <string name="draws">"Ничьи: "</string>
+    <string name="spotted">"Обнаружено противников: "</string>
+    <string name="battle_avg_xp">"Средний опыт за бой: "</string>
 
 </resources>

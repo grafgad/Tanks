@@ -53,6 +53,16 @@ class PlayerInfoFragment : BaseFragment() {
                             append(getString(R.string.rating))
                             append(it.global_rating.toString())
                         }
+                        winPercent.text = buildString {
+                            append(getString(R.string.wins_percent))
+                            append(
+                                viewModel.getWinsPercent(
+                                    it.statistics.all.wins,
+                                    it.statistics.all.battles
+                                )
+                            )
+                            append(" %")
+                        }
                         inGame.text = String.format(
                             "%s %s",
                             getString(R.string.in_game),
@@ -62,17 +72,38 @@ class PlayerInfoFragment : BaseFragment() {
                             append(getString(R.string.last_battle))
                             append(getDate(it.last_battle_time))
                         }
-                        treesCut.text = buildString {
-                            append(getString(R.string.trees_cut))
-                            append(it.statistics.treesCut.toString())
+                        battle.text = buildString {
+                            append(getString(R.string.battle))
+                            append(it.statistics.all.battles.toString())
                         }
                         maxFrags.text = buildString {
                             append(getString(R.string.max_frags))
                             append(it.statistics.all.maxFrags.toString())
                         }
-                        battle.text = buildString {
-                            append(getString(R.string.battle))
-                            append(it.statistics.all.battles.toString())
+                        hitsPercents.text = buildString {
+                            append(getString(R.string.hits_percents))
+                            append(it.statistics.all.hitsPercents.toString())
+                            append(" %")
+                        }
+                        battleAvgXp.text = buildString {
+                            append(getString(R.string.battle_avg_xp))
+                            append(it.statistics.all.battleAvgXp.toString())
+                        }
+                        wins.text = buildString {
+                            append(getString(R.string.wins))
+                            append(it.statistics.all.wins.toString())
+                        }
+                        draws.text = buildString {
+                            append(getString(R.string.draws))
+                            append(it.statistics.all.draws.toString())
+                        }
+                        spotted.text = buildString {
+                            append(getString(R.string.spotted))
+                            append(it.statistics.all.spotted.toString())
+                        }
+                        treesCut.text = buildString {
+                            append(getString(R.string.trees_cut))
+                            append(it.statistics.treesCut.toString())
                         }
                     }
                 }

@@ -45,29 +45,8 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-//        makeArtificialCrash()
         remoteConfig()
     }
-
-//    private fun makeArtificialCrash() {
-//        val crashButton = Button(this)
-//        crashButton.text = "Test Crash"
-//        try {
-//            crashButton.setOnClickListener {
-//                throw RuntimeException("Test Crash") // Force a crash
-//            }
-//        } catch (e: Exception) {
-//            Firebase.crashlytics.recordException(e)
-//            // handle your exception here
-//        }
-//
-//        addContentView(
-//            crashButton, ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT
-//            )
-//        )
-//    }
 
     private fun remoteConfig() {
         val remoteConfig = Firebase.remoteConfig
@@ -93,7 +72,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
     }
-
 
     override fun onResumeFragments() {
         super.onResumeFragments()

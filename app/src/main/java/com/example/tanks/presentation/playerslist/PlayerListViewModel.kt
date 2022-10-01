@@ -1,6 +1,6 @@
 package com.example.tanks.presentation.playerslist
 
-import com.example.tanks.di.service_locator.ApiDataSource
+import com.example.tanks.apisource.ApiDataSource
 import com.example.tanks.model.playerlist.PlayerList
 import com.example.tanks.presentation.BaseViewModel
 import com.example.tanks.subscribeSafely
@@ -28,7 +28,14 @@ class PlayerListViewModel @Inject constructor(
             this.searchSubscription = searchSubscription
             compositeDisposable.add(searchSubscription)
         } else {
-            _playerListList.accept(listOf(PlayerList(0, "Введите больше 3 символов для поиска")))
+            _playerListList.accept(
+                listOf(
+                    PlayerList(
+                        0,
+                        "Введите больше 3 символов для поиска"
+                    )
+                )
+            )
         }
     }
 }
