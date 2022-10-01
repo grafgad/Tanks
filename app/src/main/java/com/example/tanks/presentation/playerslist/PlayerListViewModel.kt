@@ -28,7 +28,14 @@ class PlayerListViewModel @Inject constructor(
             this.searchSubscription = searchSubscription
             compositeDisposable.add(searchSubscription)
         } else {
-            _playerListList.accept(listOf(PlayerList(0, "Введите больше 3 символов для поиска")))
+            _playerListList.accept(
+                listOf(
+                    PlayerList(
+                        0,
+                        "Введите больше 3 символов для поиска"
+                    )
+                )
+            )
         }
     }
 }
