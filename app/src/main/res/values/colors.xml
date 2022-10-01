@@ -7,15 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="background_color">#385024</color>
+    <color name="background_color">#526C3B</color>
     <color name="customGray">#BFBFBF</color>
 
-    <color name="colorPrimary">#0020EE</color>
-    <color name="colorPrimaryVariant">@color/purple_700</color>
+    <color name="colorPrimary">#B9EF3D3D</color> //цвет кнопок
+    <color name="colorPrimaryVariant">@color/background_color</color> // системный топбар
     <color name="colorOnPrimary">@color/white</color>
     <color name="colorSecondary">@color/teal_200</color>
-    <color name="colorSecondaryVariant">@color/teal_700</color>
+    <color name="colorSecondaryVariant">#76DA03</color>
     <color name="colorOnSecondary">@color/black</color>
-    <color name="textColor">@color/teal_200</color>
+    <color name="textColor">@color/customGray</color>
 
 </resources>

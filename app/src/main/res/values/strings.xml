@@ -17,5 +17,12 @@
     <string name="trees_cut">"Повалено деревьев: "</string>
     <string name="max_frags">"Максимум уничтожено за бой: "</string>
     <string name="battle">"Проведено боёв: "</string>
+    <string name="max_xp">"Максимальный опыт за бой: "</string>
+    <string name="hits_percents">"Процент попаданий: "</string>
+    <string name="wins">"Победы: "</string>
+    <string name="wins_percent">"Процент побед: "</string>
+    <string name="draws">"Ничьи: "</string>
+    <string name="spotted">"Обнаружено противников: "</string>
+    <string name="battle_avg_xp">"Средний опыт за бой: "</string>
 
 </resources>

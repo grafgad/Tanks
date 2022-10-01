@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/clan_image"
         tools:text="@string/nickname" />
 
@@ -28,21 +28,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nickname_text"
+        android:textSize="18sp"
         tools:text="rating" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/win_percent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/player_rating"
+        tools:text="win_percent" />
 
     <TextView
         android:id="@+id/in_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/player_rating"
-        android:textSize="16sp" />
-
+        app:layout_constraintTop_toBottomOf="@id/win_percent"
+        android:textSize="18sp"
+        tools:text="in_game" />
 
     <TextView
         android:id="@+id/last_battle_time_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/in_game"
         tools:text="last_battle" />
 
@@ -50,24 +60,64 @@
         android:id="@+id/battle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/last_battle_time_text"
-        tools:text="battle" />
+        tools:text="Проведено боёв" />
 
     <TextView
         android:id="@+id/max_frags"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/battle"
-        tools:text="max_frags" />
+        tools:text="Максимум уничтожено за бой" />
+
+    <TextView
+        android:id="@+id/hits_percents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/max_frags"
+        tools:text="Процент попаданий" />
+
+    <TextView
+        android:id="@+id/battle_avg_xp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/hits_percents"
+        tools:text="Средний опыт за бой" />
+
+    <TextView
+        android:id="@+id/wins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/battle_avg_xp"
+        tools:text="Победы" />
+
+    <TextView
+        android:id="@+id/draws"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/wins"
+        tools:text="Ничьи" />
+
+    <TextView
+        android:id="@+id/spotted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/draws"
+        tools:text="Обнаружено противников" />
 
     <TextView
         android:id="@+id/trees_cut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/max_frags"
-        tools:text="trees_cut" />
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/spotted"
+        tools:text="Повалено дереьвев" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
