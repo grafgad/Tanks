@@ -20,11 +20,10 @@ data class PlayerInfo(
             @SerializedName("max_frags") val maxFrags: Int,//Максимум уничтожено за бой
             @SerializedName("max_xp") val maxXp: Int, //Максимальный опыт за бой
             @SerializedName("hits_percents") val hitsPercents: Int, //Процент попаданий
+            @SerializedName("battle_avg_xp") val battleAvgXp: Int, //Средний опыт за бой
             @SerializedName("wins") val wins: Int, //Победы
             @SerializedName("draws") val draws: Int, //Ничьи
-            @SerializedName("spotted") val spotted: Int, //Обнаружено противников
-            @SerializedName("battle_avg_xp") val battleAvgXp: Int, //Средний опыт за бой
-
+            @SerializedName("spotted") val spotted: Int //Обнаружено противников
         )
     }
 }

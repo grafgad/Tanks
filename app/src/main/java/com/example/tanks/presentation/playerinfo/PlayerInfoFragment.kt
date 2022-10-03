@@ -74,35 +74,29 @@ class PlayerInfoFragment : BaseFragment() {
                             append(getString(R.string.battle))
                             append(it.statistics.all.battles.toString())
                         }
-                        maxFrags.text = buildString {
-                            append(getString(R.string.max_frags))
-                            append(it.statistics.all.maxFrags.toString())
-                        }
+                        maxFrags.text = getString(R.string.max_frags, it.statistics.all.maxFrags)
+
+                        maxXp.text = getString(R.string.max_xp, it.statistics.all.maxXp)
+
                         hitsPercents.text = buildString {
                             append(getString(R.string.hits_percents))
                             append(it.statistics.all.hitsPercents.toString())
                             append(" %")
                         }
-                        battleAvgXp.text = buildString {
-                            append(getString(R.string.battle_avg_xp))
-                            append(it.statistics.all.battleAvgXp.toString())
-                        }
+                        battleAvgXp.text = getString(R.string.battle_avg_xp, it.statistics.all.battleAvgXp)
+
                         wins.text = buildString {
                             append(getString(R.string.wins))
                             append(it.statistics.all.wins.toString())
                         }
-                        draws.text = buildString {
-                            append(getString(R.string.draws))
-                            append(it.statistics.all.draws.toString())
-                        }
+                        draws.text = getString(R.string.draws, it.statistics.all.draws)
+
                         spotted.text = buildString {
                             append(getString(R.string.spotted))
                             append(it.statistics.all.spotted.toString())
                         }
-                        treesCut.text = buildString {
-                            append(getString(R.string.trees_cut))
-                            append(it.statistics.treesCut.toString())
-                        }
+                        treesCut.text = getString(R.string.trees_cut, it.statistics.treesCut)
+
                     }
                 }
             )

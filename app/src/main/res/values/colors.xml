@@ -9,13 +9,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background_color">#526C3B</color>
     <color name="customGray">#BFBFBF</color>
+    <color name="customRed">#B9EF3D3D</color>
+    <color name="customBlue">#A8216EF3</color>
 
-    <color name="colorPrimary">#B9EF3D3D</color> //цвет кнопок
+    <color name="colorPrimary">@color/customRed</color> //цвет кнопок
     <color name="colorPrimaryVariant">@color/background_color</color> // системный топбар
     <color name="colorOnPrimary">@color/white</color>
     <color name="colorSecondary">@color/teal_200</color>
     <color name="colorSecondaryVariant">#76DA03</color>
     <color name="colorOnSecondary">@color/black</color>
     <color name="textColor">@color/customGray</color>
+    <color name="colorAccent">@color/colorPrimary</color>
 
 </resources>
