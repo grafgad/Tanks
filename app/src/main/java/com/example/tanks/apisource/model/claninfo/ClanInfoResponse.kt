@@ -1,6 +1,6 @@
-package com.example.tanks.model.claninfo
+package com.example.tanks.apisource.model.claninfo
 
-import com.example.tanks.model.BaseDetailResponse
+import com.example.tanks.apisource.model.BaseDetailResponse
 import com.google.gson.annotations.SerializedName
 
 data class ClanInfoResponse(

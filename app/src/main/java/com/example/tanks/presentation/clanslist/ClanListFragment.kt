@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
-import com.example.tanks.ErrorLogger
+import com.example.tanks.utils.ErrorLogger
 import com.example.tanks.Screens
 import com.example.tanks.databinding.FragmentClanListBinding
 import com.example.tanks.di.ViewModelFactory
@@ -58,17 +58,12 @@ class ClanListFragment : BaseFragment() {
             .addTo(compositeDisposable)
 
         adapter.setOnItemClickListener {
-            clanId = it
-            router.navigateTo(Screens.ClanInfo())
+            router.navigateTo(Screens.ClanInfo(it))
         }
 
         binding.clanSearchButton.setOnClickListener {
             viewModel.onSearchClicked(clanName.toString())
             hideKeyboard(it)
         }
-    }
-
-    companion object {
-        var clanId: Int = 0
     }
 }

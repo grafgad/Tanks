@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
 import com.example.tanks.databinding.ItemPlayerBinding
-import com.example.tanks.model.playerlist.PlayerList
+import com.example.tanks.apisource.model.playerlist.PlayerList
 
 class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack()) {
 

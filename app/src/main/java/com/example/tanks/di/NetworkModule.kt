@@ -2,10 +2,9 @@ package com.example.tanks.di
 
 import com.example.tanks.BuildConfig
 import com.example.tanks.apisource.ApiDataSource
-import com.example.tanks.apisource.ClanInfoDeserializer
-import com.example.tanks.apisource.PlayerInfoDeserializer
-import com.example.tanks.model.claninfo.ClanInfo
-import com.example.tanks.model.playerinfo.PlayerInfo
+import com.example.tanks.apisource.createInfoDeserializer
+import com.example.tanks.apisource.model.claninfo.ClanInfo
+import com.example.tanks.apisource.model.playerinfo.PlayerInfo
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -36,9 +35,9 @@ class NetworkModule {
                     GsonBuilder()
                         .setLenient()
                         //десериализатор для получения данных игрока
-                        .registerTypeAdapter(PlayerInfo::class.java, PlayerInfoDeserializer())
+                        .registerTypeAdapter(PlayerInfo::class.java, createInfoDeserializer<PlayerInfo>())
                         //десериализатор для получения данных клана
-                        .registerTypeAdapter(ClanInfo::class.java, ClanInfoDeserializer())
+                        .registerTypeAdapter(ClanInfo::class.java, createInfoDeserializer<ClanInfo>())
                         .create()
                 )
             )

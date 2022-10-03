@@ -1,4 +1,4 @@
-package com.example.tanks.model
+package com.example.tanks.apisource.model
 
 interface BaseListResponse<T : Any> {
     val status: String

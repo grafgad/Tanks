@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
-import com.example.tanks.ErrorLogger
+import com.example.tanks.utils.ErrorLogger
 import com.example.tanks.Screens
 import com.example.tanks.databinding.FragmentPlayerListBinding
 import com.example.tanks.di.ViewModelFactory

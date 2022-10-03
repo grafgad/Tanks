@@ -1,4 +1,4 @@
-package com.example.tanks.model.claninfo
+package com.example.tanks.apisource.model.claninfo
 
 import com.google.gson.annotations.SerializedName
 
@@ -13,8 +13,9 @@ data class ClanInfo(
 ) {
     data class EmblemX256(
         @SerializedName("x256") val x256: EmblemResponseX256
-    )
-    data class EmblemResponseX256(
-        @SerializedName("wowp") val wowp: String
-    )
+    ) {
+        data class EmblemResponseX256(
+            @SerializedName("wowp") val wowp: String
+        )
+    }
 }
