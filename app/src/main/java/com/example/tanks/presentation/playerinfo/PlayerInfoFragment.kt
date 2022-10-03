@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
-import com.example.tanks.ErrorLogger
+import com.example.tanks.utils.ErrorLogger
 import com.example.tanks.R
 import com.example.tanks.databinding.FragmentPlayerInfoBinding
 import com.example.tanks.di.ViewModelFactory
@@ -68,10 +68,8 @@ class PlayerInfoFragment : BaseFragment() {
                             getString(R.string.in_game),
                             getDate(it.created_at)
                         )
-                        lastBattleTimeText.text = buildString {
-                            append(getString(R.string.last_battle))
-                            append(getDate(it.last_battle_time))
-                        }
+                        lastBattleTimeText.text = getString(R.string.last_battle, getDate(it.last_battle_time))
+
                         battle.text = buildString {
                             append(getString(R.string.battle))
                             append(it.statistics.all.battles.toString())

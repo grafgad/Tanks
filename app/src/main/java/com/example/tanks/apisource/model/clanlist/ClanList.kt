@@ -1,4 +1,4 @@
-package com.example.tanks.model.clanlist
+package com.example.tanks.apisource.model.clanlist
 
 import com.google.gson.annotations.SerializedName
 

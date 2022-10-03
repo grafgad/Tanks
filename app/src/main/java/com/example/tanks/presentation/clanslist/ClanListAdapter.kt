@@ -11,7 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.tanks.R
 import com.example.tanks.databinding.ItemClanBinding
-import com.example.tanks.model.clanlist.ClanList
+import com.example.tanks.apisource.model.clanlist.ClanList
 import java.text.SimpleDateFormat
 import java.util.*
 

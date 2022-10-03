@@ -1,4 +1,4 @@
-package com.example.tanks
+package com.example.tanks.utils
 
 import android.util.Log
 

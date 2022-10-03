@@ -1,4 +1,4 @@
-package com.example.tanks.model.playerinfo
+package com.example.tanks.apisource.model.playerinfo
 
 import com.google.gson.annotations.SerializedName
 

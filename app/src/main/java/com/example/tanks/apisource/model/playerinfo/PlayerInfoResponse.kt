@@ -1,6 +1,6 @@
-package com.example.tanks.model.playerinfo
+package com.example.tanks.apisource.model.playerinfo
 
-import com.example.tanks.model.BaseDetailResponse
+import com.example.tanks.apisource.model.BaseDetailResponse
 import com.google.gson.annotations.SerializedName
 
 data class PlayerInfoResponse(

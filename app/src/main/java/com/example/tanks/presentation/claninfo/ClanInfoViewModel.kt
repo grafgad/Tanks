@@ -1,9 +1,9 @@
 package com.example.tanks.presentation.claninfo
 
 import com.example.tanks.apisource.ApiDataSource
-import com.example.tanks.model.claninfo.ClanInfo
+import com.example.tanks.apisource.model.claninfo.ClanInfo
 import com.example.tanks.presentation.BaseViewModel
-import com.example.tanks.subscribeSafely
+import com.example.tanks.utils.subscribeSafely
 import com.jakewharton.rxrelay3.BehaviorRelay
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -16,7 +16,13 @@ class ClanInfoViewModel @Inject constructor(
     private var searchSubscription: Disposable? = null
     private val _clanInfo: BehaviorRelay<ClanInfo> = BehaviorRelay.createDefault(
         ClanInfo(
-            0, ClanInfo.EmblemX256(ClanInfo.EmblemResponseX256("")),"","","",0,"",
+            0,
+            ClanInfo.EmblemX256(ClanInfo.EmblemX256.EmblemResponseX256("")),
+            "",
+            "",
+            "",
+            0,
+            "",
         )
     )
     val clanInfo: Observable<ClanInfo> = _clanInfo
@@ -33,5 +39,4 @@ class ClanInfoViewModel @Inject constructor(
         this.searchSubscription = mSearchSubscription
         compositeDisposable.add(mSearchSubscription)
     }
-
 }

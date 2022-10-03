@@ -1,9 +1,9 @@
 package com.example.tanks.presentation.playerslist
 
 import com.example.tanks.apisource.ApiDataSource
-import com.example.tanks.model.playerlist.PlayerList
+import com.example.tanks.apisource.model.playerlist.PlayerList
 import com.example.tanks.presentation.BaseViewModel
-import com.example.tanks.subscribeSafely
+import com.example.tanks.utils.subscribeSafely
 import com.jakewharton.rxrelay3.BehaviorRelay
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable

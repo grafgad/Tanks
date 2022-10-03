@@ -1,4 +1,4 @@
-package com.example.tanks
+package com.example.tanks.utils
 
 import io.reactivex.rxjava3.annotations.CheckReturnValue
 import io.reactivex.rxjava3.annotations.SchedulerSupport

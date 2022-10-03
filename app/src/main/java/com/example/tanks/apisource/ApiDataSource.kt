@@ -1,9 +1,9 @@
 package com.example.tanks.apisource
 
-import com.example.tanks.model.claninfo.ClanInfoResponse
-import com.example.tanks.model.clanlist.ClansListResponse
-import com.example.tanks.model.playerlist.PlayerListResponse
-import com.example.tanks.model.playerinfo.PlayerInfoResponse
+import com.example.tanks.apisource.model.claninfo.ClanInfoResponse
+import com.example.tanks.apisource.model.clanlist.ClansListResponse
+import com.example.tanks.apisource.model.playerlist.PlayerListResponse
+import com.example.tanks.apisource.model.playerinfo.PlayerInfoResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
