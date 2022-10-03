@@ -11,6 +11,6 @@ object Screens {
     fun Main() = FragmentScreen { MainFragment() }
     fun CLan() = FragmentScreen { ClanListFragment() }
     fun Player() = FragmentScreen { PlayerListFragment() }
-    fun PlayerInfo() = FragmentScreen { PlayerInfoFragment() }
+    fun PlayerInfo(playerId: Int) = FragmentScreen { PlayerInfoFragment.newInstance(playerId) }
     fun ClanInfo(clanId: Int) = FragmentScreen { ClanInfoFragment.newInstance(clanId) }
 }

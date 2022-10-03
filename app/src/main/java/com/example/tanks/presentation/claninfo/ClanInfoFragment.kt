@@ -10,11 +10,11 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.tanks.App
-import com.example.tanks.utils.ErrorLogger
 import com.example.tanks.R
 import com.example.tanks.databinding.FragmentClanInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
+import com.example.tanks.utils.ErrorLogger
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
@@ -26,7 +26,9 @@ class ClanInfoFragment : BaseFragment() {
     lateinit var clanInfoViewModelFactory: ViewModelFactory // если viewmodel будет с параметрами то нужно писать отдельный ViewModelFactory
     private val viewModel: ClanInfoViewModel by viewModels { clanInfoViewModelFactory }
     private val binding: FragmentClanInfoBinding by viewBinding(CreateMethod.INFLATE)
-    private val clanId: Int by lazy(LazyThreadSafetyMode.NONE) { requireArguments().getInt(CLAN_ID_KEY) }
+    private val clanId: Int by lazy(LazyThreadSafetyMode.NONE) {
+        requireArguments().getInt(CLAN_ID_KEY)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
