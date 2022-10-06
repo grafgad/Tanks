@@ -59,17 +59,12 @@ class PlayerListFragment : BaseFragment() {
             .addTo(compositeDisposable)
 
         adapter.setOnItemClickListener {
-            playerId = it
-            router.navigateTo(Screens.PlayerInfo())
+            router.navigateTo(Screens.PlayerInfo(it))
         }
 
         binding.searchButton.setOnClickListener {
             viewModel.onSearchClicked(nickname.toString())
             hideKeyboard(it)
         }
-    }
-
-    companion object {
-        var playerId: Int = 0
     }
 }

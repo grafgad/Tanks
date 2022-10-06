@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
-import com.example.tanks.utils.ErrorLogger
 import com.example.tanks.R
 import com.example.tanks.databinding.FragmentPlayerInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
-import com.example.tanks.presentation.playerslist.PlayerListFragment
+import com.example.tanks.utils.ErrorLogger
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.kotlin.subscribeBy
@@ -27,6 +27,11 @@ class PlayerInfoFragment : BaseFragment() {
     lateinit var playerInfoViewModelFactory: ViewModelFactory
     private val viewModel: PlayerInfoViewModel by viewModels { playerInfoViewModelFactory }
     private val binding: FragmentPlayerInfoBinding by viewBinding(CreateMethod.INFLATE)
+    private val playerId: Int by lazy(LazyThreadSafetyMode.NONE) {
+        requireArguments().getInt(
+            PLAYER_ID_KEY
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +73,8 @@ class PlayerInfoFragment : BaseFragment() {
                             getString(R.string.in_game),
                             getDate(it.created_at)
                         )
-                        lastBattleTimeText.text = getString(R.string.last_battle, getDate(it.last_battle_time))
+                        lastBattleTimeText.text =
+                            getString(R.string.last_battle, getDate(it.last_battle_time))
 
                         battle.text = buildString {
                             append(getString(R.string.battle))
@@ -83,7 +89,8 @@ class PlayerInfoFragment : BaseFragment() {
                             append(it.statistics.all.hitsPercents.toString())
                             append(" %")
                         }
-                        battleAvgXp.text = getString(R.string.battle_avg_xp, it.statistics.all.battleAvgXp)
+                        battleAvgXp.text =
+                            getString(R.string.battle_avg_xp, it.statistics.all.battleAvgXp)
 
                         wins.text = buildString {
                             append(getString(R.string.wins))
@@ -102,7 +109,6 @@ class PlayerInfoFragment : BaseFragment() {
             )
             .addTo(compositeDisposable)
 
-        val playerId = PlayerListFragment.playerId
         viewModel.getPlayerInfo(playerId)
     }
 
@@ -113,6 +119,15 @@ class PlayerInfoFragment : BaseFragment() {
             sdf.format(netDate)
         } catch (e: Exception) {
             e.toString()
+        }
+    }
+
+    companion object {
+        private const val PLAYER_ID_KEY = "playerId"
+        fun newInstance(playerId: Int): PlayerInfoFragment {
+            return PlayerInfoFragment().apply {
+                arguments = bundleOf(PLAYER_ID_KEY to playerId)
+            }
         }
     }
 }
