@@ -60,9 +60,9 @@ android {
 
 dependencies {
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
 
-    // Import the Firebase BoM
+    // Firebase BoM
     implementation(platform ("com.google.firebase:firebase-bom:30.3.2"))
 
     // When using the BoM, don"t specify versions in Firebase dependencies
@@ -85,7 +85,7 @@ dependencies {
     kapt("androidx.room:room-compiler:2.4.3")
 
     //Coil
-    implementation("io.coil-kt:coil:1.3.1")
+    implementation("io.coil-kt:coil:2.2.2")
 
     //Lifecycle and ViewModel (архитектурные компоненты)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
@@ -93,13 +93,13 @@ dependencies {
 
     //rxJava
     implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
-    implementation("io.reactivex.rxjava3:rxjava:3.1.3")
-    implementation("io.reactivex.rxjava3:rxkotlin:3.0.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.5")
+    implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
     implementation("com.jakewharton.rxrelay3:rxrelay:3.0.1")
 
     //Okhttp
-    implementation("com.squareup.okhttp3:okhttp:4.9.2")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.10")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -110,8 +110,8 @@ dependencies {
     implementation("com.github.terrakok:cicerone:7.1")
 
     //dagger
-    implementation("com.google.dagger:dagger:2.42")
-    kapt("com.google.dagger:dagger-compiler:2.42")
+    implementation("com.google.dagger:dagger:2.44")
+    kapt("com.google.dagger:dagger-compiler:2.44")
 
     //UI
     implementation("com.google.android.material:material:1.6.1")
