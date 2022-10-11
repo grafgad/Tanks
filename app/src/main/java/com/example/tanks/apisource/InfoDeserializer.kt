@@ -16,8 +16,8 @@ class InfoDeserializer<T: Any>(
     ): T? {
         val jsonObject = json?.asJsonObject ?: return null
         val key = jsonObject.keySet()?.first()?.toString() ?: return null
-        val clanJsonObject = jsonObject.get(key) ?: return null
-        return Gson().fromJson(clanJsonObject, clazz)
+        val myJsonObject = jsonObject.get(key) ?: return null
+        return Gson().fromJson(myJsonObject, clazz)
     }
 }
 

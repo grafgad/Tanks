@@ -63,7 +63,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
 
     // Firebase BoM
-    implementation(platform ("com.google.firebase:firebase-bom:30.3.2"))
+    implementation(platform ("com.google.firebase:firebase-bom:30.5.0"))
 
     // When using the BoM, don"t specify versions in Firebase dependencies
     implementation("com.google.firebase:firebase-analytics-ktx")
