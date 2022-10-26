@@ -27,6 +27,7 @@ class PlayerInfoFragment : BaseFragment() {
     lateinit var playerInfoViewModelFactory: ViewModelFactory
     private val viewModel: PlayerInfoViewModel by viewModels { playerInfoViewModelFactory }
     private val binding: FragmentPlayerInfoBinding by viewBinding(CreateMethod.INFLATE)
+//    LazyThreadSafetyMode нужен для потокобезопасности
     private val playerId: Int by lazy(LazyThreadSafetyMode.NONE) {
         requireArguments().getInt(
             PLAYER_ID_KEY
