@@ -15,10 +15,12 @@
     <string name="nickname">Nickname:</string>
     <string name="account_id">Account ID:</string>
     <string name="enter_player_name">введите имя игрока</string>
+    <string name="compare">Добавить к сравнению</string>
 
     <!--CLanList-->
     <string name="players_count">"Кол-во игроков:  "</string>
     <string name="enter_clan_name">Введите название клана</string>
+    <string name="clan_made_date">"Создан: "</string>
 
     <!--ClanInfo-->
     <string name="members_count">"Кол-во игроков: "</string>

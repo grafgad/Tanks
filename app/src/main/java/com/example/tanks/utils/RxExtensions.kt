@@ -11,7 +11,6 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 fun <T : Any> Single<T>.subscribeSafely(
     onError: (Throwable) -> Unit = {},
     onSuccess: (T) -> Unit = {}
-
 ): Disposable {
     return subscribeBy(
         onError = {

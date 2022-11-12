@@ -6,5 +6,6 @@ data class PlayerList(
     @SerializedName("account_id")
     val account_id: Int,
     @SerializedName("nickname")
-    val nickname: String
+    val nickname: String,
+    val isChecked: Boolean
 )

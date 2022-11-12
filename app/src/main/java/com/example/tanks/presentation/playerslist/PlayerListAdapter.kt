@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.R
-import com.example.tanks.databinding.ItemPlayerBinding
 import com.example.tanks.apisource.model.playerlist.PlayerList
+import com.example.tanks.databinding.ItemPlayerBinding
+import com.example.tanks.presentation.playerslist.PlayerListFragment.Companion.COMPARE_LIST
 
-class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack()) {
+class PlayerListAdapter :
+    ListAdapter<PlayerList, PlayerListAdapter.ItemViewHolder>(DiffCallBack()) {
 
     private var onItemCLickListener: (Int) -> Unit = {}
 
@@ -26,22 +28,31 @@ class PlayerListAdapter : ListAdapter<PlayerList, PlayerListAdapter.ItemViewHold
         }
     }
 
-     class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
 
         private val binding: ItemPlayerBinding by viewBinding()
         private val nickname = binding.nicknameText
         private val account = binding.accountText
+        private val checkBox = binding.playerCheckbox
 
         fun onBind(playerList: PlayerList) {
             nickname.text = playerList.nickname
             account.text = playerList.account_id.toString()
             binding.root.setOnClickListener {
-                 onItemCLickListener.invoke(playerList.account_id)
+                onItemCLickListener.invoke(playerList.account_id)
             }
+            checkBox.isChecked = playerList.isChecked
         }
     }
 
-    fun setOnItemClickListener (onItemCLickListener: (Int) -> Unit) {
+    fun addToCompareList(playerList: PlayerList) {
+        if (playerList.isChecked) {
+            COMPARE_LIST.plus(playerList)
+        }
+    }
+
+    fun setOnItemClickListener(onItemCLickListener: (Int) -> Unit) {
         this.onItemCLickListener = onItemCLickListener
     }
 

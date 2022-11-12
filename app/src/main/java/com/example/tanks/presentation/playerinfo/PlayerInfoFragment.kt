@@ -10,6 +10,7 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.R
+import com.example.tanks.apisource.model.playerinfo.PlayerInfo
 import com.example.tanks.databinding.FragmentPlayerInfoBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
@@ -52,19 +53,19 @@ class PlayerInfoFragment : BaseFragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onError = ErrorLogger::logThrowable,
-                onNext = {
+                onNext = { playerInfo ->
                     with(binding) {
-                        nicknameText.text = it.nickname
+                        nicknameText.text = playerInfo.nickname
                         playerRating.text = buildString {
                             append(getString(R.string.rating))
-                            append(it.global_rating.toString())
+                            append(playerInfo.global_rating.toString())
                         }
                         winPercent.text = buildString {
                             append(getString(R.string.wins_percent))
                             append(
                                 viewModel.getWinsPercent(
-                                    it.statistics.all.wins,
-                                    it.statistics.all.battles
+                                    playerInfo.statistics.all.wins,
+                                    playerInfo.statistics.all.battles
                                 )
                             )
                             append(" %")
@@ -72,44 +73,46 @@ class PlayerInfoFragment : BaseFragment() {
                         inGame.text = String.format(
                             "%s %s",
                             getString(R.string.in_game),
-                            getDate(it.created_at)
+                            getDate(playerInfo.created_at)
                         )
                         lastBattleTimeText.text =
-                            getString(R.string.last_battle, getDate(it.last_battle_time))
+                            getString(R.string.last_battle, getDate(playerInfo.last_battle_time))
 
                         battle.text = buildString {
                             append(getString(R.string.battle))
-                            append(it.statistics.all.battles.toString())
+                            append(playerInfo.statistics.all.battles.toString())
                         }
-                        maxFrags.text = getString(R.string.max_frags, it.statistics.all.maxFrags)
+                        maxFrags.text = getString(R.string.max_frags, playerInfo.statistics.all.maxFrags)
 
-                        maxXp.text = getString(R.string.max_xp, it.statistics.all.maxXp)
+                        maxXp.text = getString(R.string.max_xp, playerInfo.statistics.all.maxXp)
 
                         hitsPercents.text = buildString {
                             append(getString(R.string.hits_percents))
-                            append(it.statistics.all.hitsPercents.toString())
+                            append(playerInfo.statistics.all.hitsPercents.toString())
                             append(" %")
                         }
                         battleAvgXp.text =
-                            getString(R.string.battle_avg_xp, it.statistics.all.battleAvgXp)
+                            getString(R.string.battle_avg_xp, playerInfo.statistics.all.battleAvgXp)
 
                         wins.text = buildString {
                             append(getString(R.string.wins))
-                            append(it.statistics.all.wins.toString())
+                            append(playerInfo.statistics.all.wins.toString())
                         }
-                        draws.text = getString(R.string.draws, it.statistics.all.draws)
+                        draws.text = getString(R.string.draws, playerInfo.statistics.all.draws)
 
                         spotted.text = buildString {
                             append(getString(R.string.spotted))
-                            append(it.statistics.all.spotted.toString())
+                            append(playerInfo.statistics.all.spotted.toString())
                         }
-                        treesCut.text = getString(R.string.trees_cut, it.statistics.treesCut)
+                        treesCut.text = getString(R.string.trees_cut, playerInfo.statistics.treesCut)
 
+                        compareButton.setOnClickListener {
+                            addToCompareList(playerInfo)
+                        }
                     }
                 }
             )
             .addTo(compositeDisposable)
-
         viewModel.getPlayerInfo(playerId)
     }
 
@@ -121,6 +124,10 @@ class PlayerInfoFragment : BaseFragment() {
         } catch (e: Exception) {
             e.toString()
         }
+    }
+
+    private fun addToCompareList(playerInfo: PlayerInfo) {
+        viewModel.addToCompareList(playerInfo)
     }
 
     companion object {

@@ -1,9 +1,11 @@
 package com.example.tanks.presentation.playerinfo
 
 
+import android.util.Log
 import com.example.tanks.apisource.ApiDataSource
 import com.example.tanks.apisource.model.playerinfo.PlayerInfo
 import com.example.tanks.presentation.BaseViewModel
+import com.example.tanks.presentation.playerslist.PlayerListFragment.Companion.COMPARE_LIST
 import com.example.tanks.utils.subscribeSafely
 import com.jakewharton.rxrelay3.BehaviorRelay
 import io.reactivex.rxjava3.core.Observable
@@ -61,5 +63,10 @@ class PlayerInfoViewModel @Inject constructor(
              return myFormat.format(result)
         }
         return "0wrong"
+    }
+
+    fun addToCompareList(playerInfo: PlayerInfo) {
+        COMPARE_LIST.plus(playerInfo)
+        Log.d("LLLL", COMPARE_LIST.toString())
     }
 }

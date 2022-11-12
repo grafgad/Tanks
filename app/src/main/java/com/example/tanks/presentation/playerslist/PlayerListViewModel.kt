@@ -32,10 +32,16 @@ class PlayerListViewModel @Inject constructor(
                 listOf(
                     PlayerList(
                         0,
-                        "Введите больше 3 символов для поиска"
+                        "Введите больше 3 символов для поиска",
+                        false
                     )
                 )
             )
         }
     }
+
+
+
+
+
 }

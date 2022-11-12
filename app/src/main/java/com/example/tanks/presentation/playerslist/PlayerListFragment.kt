@@ -9,6 +9,8 @@ import by.kirich1409.viewbindingdelegate.CreateMethod
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tanks.App
 import com.example.tanks.Screens
+import com.example.tanks.apisource.model.playerinfo.PlayerInfo
+import com.example.tanks.apisource.model.playerlist.PlayerList
 import com.example.tanks.databinding.FragmentPlayerListBinding
 import com.example.tanks.di.ViewModelFactory
 import com.example.tanks.presentation.BaseFragment
@@ -66,5 +68,12 @@ class PlayerListFragment : BaseFragment() {
             viewModel.onSearchClicked(nickname.toString())
             hideKeyboard(it)
         }
+
+//        adapter.addToCompareList(PlayerList.joinToInt)
+
+    }
+
+    companion object {
+        val COMPARE_LIST = setOf<PlayerInfo>()
     }
 }

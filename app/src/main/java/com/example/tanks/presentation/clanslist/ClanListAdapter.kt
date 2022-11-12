@@ -1,6 +1,5 @@
 package com.example.tanks.presentation.clanslist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
 import com.example.tanks.R
-import com.example.tanks.databinding.ItemClanBinding
 import com.example.tanks.apisource.model.clanlist.ClanList
+import com.example.tanks.databinding.ItemClanBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -31,7 +30,8 @@ class ClanListAdapter :
         }
     }
 
-    class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class ItemViewHolder(itemView: View, private val onItemCLickListener: (Int) -> Unit) :
+        RecyclerView.ViewHolder(itemView) {
 
         private val binding: ItemClanBinding by viewBinding()
         private val clanName = binding.clanName
@@ -48,9 +48,11 @@ class ClanListAdapter :
                 clanList.emblems.x195.portal
 
             clanImage.load(image)
-            Log.d("myimage", image)
-            createdAt.text = dateFormat.format(dateOfCreation)
             clanName.text = clanList.name
+            createdAt.text = buildString {
+                append(binding.root.resources.getString(R.string.clan_made_date))
+                append(dateFormat.format(dateOfCreation))
+            }
             clanMembersCount.text = clanMembers
 
             binding.root.setOnClickListener {
@@ -59,7 +61,7 @@ class ClanListAdapter :
         }
     }
 
-    fun setOnItemClickListener (onItemCLickListener: (Int) -> Unit) {
+    fun setOnItemClickListener(onItemCLickListener: (Int) -> Unit) {
         this.onItemCLickListener = onItemCLickListener
     }
 
